@@ -54,7 +54,7 @@ Connect the Nordic Semiconductor ARM board to the desktop computer. If the board
 
 Follow the instructions [here](https://www.zephyrproject.org/getting-started-with-nrf-connect-for-visual-studio-code/) to create a project, build, and flash example code onto the board.
 
-### Acquire Mohsen's LLVM Code and Shell Scripts
+### Run LLVM Passes Using Shell Scripts
 
 - Change the file path constants within the shell scripts to match the local file structure.
 - Choose a test C file from the examples.
