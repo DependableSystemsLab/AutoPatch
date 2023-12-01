@@ -18,7 +18,7 @@
 Download the following software applications (may need admin privileges):
 
 - [VSCode](https://code.visualstudio.com/)
-- Nordic Semiconductor SDK (full suite)
+- [Nordic Semiconductor SDK (full suite)](https://www.nordicsemi.com/Products/Development-software/nrf5-sdk)
 
 ### Configuring LLVM
 
