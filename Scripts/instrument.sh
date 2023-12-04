@@ -31,6 +31,7 @@ INST_BC_FILE="${SRC_DIR}/${FILENAME}-inst.bc"
 LLVMAUTOPATCHFIRST="${LLVM_BUILD_DIR}/lib/LLVMAutoPatchFirst.so"
 OPT="${LLVM_BUILD_DIR}/bin/opt"
 LLVM_AS="${LLVM_BUILD_DIR}/bin/llvm-as"
+LLVM_CLANG="${LLVM_BUILD_DIR}/bin/clang-13"
 
 read -p "Is it patched? (true/false): " isPatchedInput
 
@@ -48,7 +49,7 @@ fi
 
 # Compile C code to ll file
 # clang -O0 -g -S -emit-llvm -I"${HEADER_DIR}" -o "${LL_FILE}" -c "${SRC_FILE}"
-clang -O0 -g -S -emit-llvm -o "${LL_FILE}" -c "${SRC_FILE}"
+"${LLVM_CLANG}" -O0 -g -S -emit-llvm -o "${LL_FILE}" -c "${SRC_FILE}"
 
 # Build LLVM with LLVMAutoPatchFirst
 # cp $AUTOPATCH_INSTRUMENT_REPO/AutoPatchFirstPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchFirstPass/AutoPatchFirstPass.cpp
