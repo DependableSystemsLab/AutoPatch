@@ -12,7 +12,11 @@
   - ninja
   - vim
   - j-link
-
+- Run the following script:  
+```shell
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install build-essential curl libcap-dev git libncurses5-dev python2-minimal python3-pip unzip libtcmalloc-minimal4 libgoogle-perftools-dev libsqlite3-dev doxygen ninja-build gcc g++ clang-9 llvm-9 llvm-9-dev llvm-9-tools autoconf  
+```
 ### Download Software Applications
 
 Download the following software applications (may need admin privileges):
