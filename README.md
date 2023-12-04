@@ -22,7 +22,7 @@ Download the following software applications (may need admin privileges):
 
 ### Configuring LLVM
 
-1. Install and build LLVM using the following code:
+1. Install and build LLVM using the following code:  
 `git clone https://github.com/llvm/llvm-project.git`  
 `cd llvm-project && git checkout release/13.x && cd ..`  
 `mkdir llvm-project/build`  
