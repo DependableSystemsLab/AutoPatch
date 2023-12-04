@@ -1,11 +1,8 @@
 # AutoPatchCode
 
-## Setting up LLVM/Nordic Semiconductors Development Environment
+### Configure the working directory
 
-### Configure ECE Department Linux Machine
-
-- Use ECE login for department machines or a private login for other lab machines.
-- Install the following packages (any modern version) with admin privileges:
+- Install the following packages (any modern version):
   - git
   - gcc
   - cmake
@@ -19,7 +16,7 @@ sudo apt-get install build-essential curl libcap-dev git libncurses5-dev python2
 ```
 ### Download Software Applications
 
-Download the following software applications (may need admin privileges):
+Download the following software applications:
 
 - [VSCode](https://code.visualstudio.com/)
 - [Nordic Semiconductor SDK (full suite)](https://www.nordicsemi.com/Products/Development-software/nrf5-sdk)
@@ -27,25 +24,27 @@ Download the following software applications (may need admin privileges):
 ### Configuring LLVM
 
 1. Install and build LLVM using the following code:  
-`git clone https://github.com/llvm/llvm-project.git`  
-`cd llvm-project && git checkout release/13.x && cd ..`  
-`mkdir llvm-project/build`  
-`cd llvm-project/build`  
-`cmake -G Ninja ../llvm -DLLVM_ENABLE_PROJECTS="tools;clang;compiler-rt" -DLLVM_TARGETS_TO_BUILD="X86;ARM"  -DLLVM_ENABLE_ASSERTIONS=ON -DLLVM_ENABLE_RTTI=ON -DLLVM_OPTIMIZED_TABLEGEN=ON -DCMAKE_BUILD_TYPE=Release`  
-`ninja -j4`  
-`sudo ninja install`  
+```git clone https://github.com/llvm/llvm-project.git
+cd llvm-project && git checkout release/13.x && cd ..
+mkdir llvm-project/build
+cd llvm-project/build
+cmake -G Ninja ../llvm -DLLVM_ENABLE_PROJECTS="tools;clang;compiler-rt" -DLLVM_TARGETS_TO_BUILD="X86;ARM"  -DLLVM_ENABLE_ASSERTIONS=ON -DLLVM_ENABLE_RTTI=ON-DLLVM_OPTIMIZED_TABLEGEN=ON -DCMAKE_BUILD_TYPE=Release
+ninja -j4
+sudo ninja install  
+```  
 
 2. Add the `AutoPatchFirstPass` and `AutoPatchSecondPass` folders to the `llvm-project/lib/Transforms` directory. Update `CMakeLists.txt` to include the new passes.
 
-3. Ensure `llvm` is on branch `release/13.x`. Since AutoPatch uses specific functionality not found in this version of `llvm`, update the following files with:  
+3. Ensure `llvm` is on branch `release/13.x`. Since AutoPatch uses specific functionality not found in this version of `llvm`, update the following files:  
     `llvm-project/llvm/include/IR/BasicBlock.h`  
     `llvm-project/llvm/include/IR/IRBuilder.h`  
     `llvm-project/llvm/lib/IR/BasicBlock.cpp`  
+  with the versions found in the [`LLVM`](LLVM) directory of this repository.
 
 
 ### VSCode Extensions
 
-Download the following VSCode extensions for Zephyr and Nordic Semiconductor (found in the VSCode extension marketplace and can be installed without admin privileges):
+Download the following VSCode extensions for Zephyr and Nordic Semiconductor (found in the VSCode extension marketplace):
 
 - DeviceTree for the Zephyr Project
 - Kconfig for the Zephyr Project
