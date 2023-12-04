@@ -53,7 +53,7 @@ Download the following VSCode extensions for Zephyr and Nordic Semiconductor (fo
 
 ### Connecting Nordic Semiconductor ARM Board
 
-Connect the Nordic Semiconductor ARM board to the desktop computer. If the board does not automatically show up, make sure you have installed J-Link.
+Connect the Nordic Semiconductor ARM board (nRF52840-DK) to the desktop computer. If the board does not automatically show up, make sure you have installed J-Link.
 
 Follow the instructions [here](https://www.zephyrproject.org/getting-started-with-nrf-connect-for-visual-studio-code/) to create a project, build, and flash example code onto the board.
 
