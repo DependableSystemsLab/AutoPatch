@@ -36,8 +36,8 @@ sudo ninja install
 2. Add the `AutoPatchFirstPass` and `AutoPatchSecondPass` folders to the `llvm-project/lib/Transforms` directory. Update `CMakeLists.txt` to include the new passes.
 
 3. Ensure `llvm` is on branch `release/13.x`. Since AutoPatch uses specific functionality not found in this version of `llvm`, update the following files:  
-    `llvm-project/llvm/include/IR/BasicBlock.h`  
-    `llvm-project/llvm/include/IR/IRBuilder.h`  
+    `llvm-project/llvm/include/llvm/IR/BasicBlock.h`  
+    `llvm-project/llvm/include/llvm/IR/IRBuilder.h`  
     `llvm-project/llvm/lib/IR/BasicBlock.cpp`  
   with the versions found in the [`LLVM`](LLVM) directory of this repository.
 
