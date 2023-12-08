@@ -1,4 +1,4 @@
-# AutoPatchCode
+# AutoPatchCode Setup
 
 ### Configure the working directory
 
