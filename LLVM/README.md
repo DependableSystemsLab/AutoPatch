@@ -8,4 +8,4 @@ As mentioned in the main [`README`](../README.md), the following files must be m
     `llvm-project/llvm/include/llvm/IR/IRBuilder.h`  
     `llvm-project/llvm/lib/IR/BasicBlock.cpp`  
 
-To do so, simply copy the 3 files from this directory into the corresponding files in the LLVM directory.
+To do so, simply copy the 3 files from this directory into the corresponding files in your local LLVM directory.
