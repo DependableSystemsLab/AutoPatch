@@ -85,7 +85,7 @@ start=$(date +%s.%N)
 #"${OPT}" -S -enable-new-pm=0 -load "${LLVMAUTOPATCHSECOND}" -time-passes -patching -func-patch-name="${funcPatchName}" -line-num-patch="${lineNumPatchStr}" -output-dir=$HOTPATCH_DIRECTORY -cve-id="${CVEid}" -type-offpatch="${typeOfficialPatch}" -type-patch="${typePatch}" <"${BC_FILE}"> /dev/null
 
 #NEW (AFTER EVALUATION BACK TO THE ABOVE CODE)
-"${OPT}" -S -enable-new-pm=0 -load "${LLVMAUTOPATCHSECOND}" -O1 -time-passes -patching -func-patch-name="${funcPatchName}" -line-num-patch="${lineNumPatchStr}" -output-dir=$HOTPATCH_DIRECTORY -cve-id="${CVEid}" -type-offpatch=filter -type-patch=${typePatch}" <"${BC_FILE}"> /dev/null
+"${OPT}" -S -enable-new-pm=0 -load "${LLVMAUTOPATCHSECOND}" -O1 -time-passes -patching -func-patch-name="${funcPatchName}" -line-num-patch="${lineNumPatchStr}" -output-dir=$HOTPATCH_DIRECTORY -cve-id="${CVEid}" -type-offpatch="${typeOfficialPatch}" -type-patch=$"{typePatch}" <"${BC_FILE}"> /dev/null
 
 
 # Record end time
