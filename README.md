@@ -32,7 +32,8 @@ cd llvm-project/build
 cmake -G Ninja ../llvm -DLLVM_ENABLE_PROJECTS="tools;clang;compiler-rt" -DLLVM_TARGETS_TO_BUILD="X86;ARM"  -DLLVM_ENABLE_ASSERTIONS=ON -DLLVM_ENABLE_RTTI=ON-DLLVM_OPTIMIZED_TABLEGEN=ON -DCMAKE_BUILD_TYPE=Release
 ninja -j4
 sudo ninja install  
-```  
+```
+*The `DLLVM_TARGETS_TO_BUILD` cmake flag can be modified to build patches targeting other architectures.  
 
 2. Add the `AutoPatchFirstPass` and `AutoPatchSecondPass` folders to the `llvm-project/lib/Transforms` directory. Update `CMakeLists.txt` to include the new passes.
 
@@ -60,10 +61,11 @@ Follow the instructions [here](https://www.zephyrproject.org/getting-started-wit
 
 ### Run LLVM Passes Using Shell Scripts
 
+To streamline development work, we have written [scripts](Scripts) for executing the instrumentation and analysis components of AutoPatch. They work as follows: 
 - Change the file path constants within the shell scripts to match the local file structure.
 - Choose a test C file from the example CVEs in [`Testcases`](Testcases).
 - Change the file names, function names, patch type, and line numbers in the `instrument.sh` and `analysis.sh` file to match the C file.
-- Run `instrument.sh`, get the `.bc` file, then use that to run `analysis.sh` to get the `.o` file (see [`Scripts`](Scripts)).
+- Run `instrument.sh`, get the `.bc` file, which contains the instrumented llvm IR. Then use that to run `analysis.sh` to get the `.o` file (see [`Scripts`](Scripts)), which represents the patched executable, capable on running on the targeted hardware.
 
 ### Flash and Execute
 

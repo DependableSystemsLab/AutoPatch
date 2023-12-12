@@ -1,6 +1,8 @@
 # LLVM Passes
 ## Purpose
-AutoPatch relies on 2 LLVM passes to perform its instrumentation and compilation. The first pass, `AutoPatchFirstPass`, is responsible for instrumentation and is used in the [`instrument.sh`](../Scripts/instrument.sh) script. The second pass, `AutoPatchSecondPass`, completes the instrumentation and prepares the LLVM IR for compilation, all of which is done in the [`analysis.sh`](../Scripts/analysis.sh) script.
+AutoPatch relies on 2 LLVM passes to perform its instrumentation and compilation. The first pass, `AutoPatchFirstPass`, is responsible for instrumentation and is used in the [`instrument.sh`](../Scripts/instrument.sh) script. It adds trampolines in four areas of the function: the function entrance, after/inside complex loops, after/inside complex branches, and after the the function call.
+
+The second pass, `AutoPatchSecondPass`, is meant to be run after a security vulnerability (CVE) is discovered in the function. Taking in the patched function, it selects the best trampoline to generate the hotpatch. It produces an executable to be run.
 
 Both passes are written in C++ and are located in the `Passes` directory.
 ## Adding passes to LLVM
