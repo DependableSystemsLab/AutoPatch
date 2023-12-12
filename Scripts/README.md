@@ -1,6 +1,6 @@
 # Scripts
 Before running any scripts, ensure the `LLVM_BUILD_DIR` environment variable is set correctly:  
-e.g. `export LLVM_BUILD_DIR=~/llvm-project/build`  
+For instance: `export LLVM_BUILD_DIR=~/llvm-project/build`  
 Similarly, make sure the `AUTOPATCHCODE_DIR` environment variable is set correctly.
 ## instrument.sh
 ### Overview
