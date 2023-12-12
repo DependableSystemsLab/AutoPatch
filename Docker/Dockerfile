@@ -1,55 +1,64 @@
+# Use an official Ubuntu 20.04 image as a base
 FROM ubuntu:20.04
-LABEL Description="Image for building and testing AutoPatch"
 
+# Set the DEBIAN_FRONTEND to noninteractive
 ARG DEBIAN_FRONTEND="noninteractive"
 
+# Install required dependencies
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
         build-essential \
         curl \
-        libcap-dev \
         git \
+        libcap-dev \
         libncurses5-dev \
         python2-minimal \
         python3-pip \
-        unzip 
+        unzip \
         libtcmalloc-minimal4 \
         libgoogle-perftools-dev \
         libsqlite3-dev \
         doxygen \
         ninja-build \
         gcc \
-        g++ clang-9 llvm-9 \
-        llvm-9-dev llvm-9-tools autoconf && \
+        g++ \
+        clang-9 \
+        cmake \
+        llvm-9 \
+        llvm-9-dev \
+        llvm-9-tools \
+        autoconf \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/llvm/llvm-project.git
-RUN cd llvm-project && git checkout release/13.x && cd .. && \
-    mkdir llvm-project/build && cd llvm-project/build && \
-    cmake -G Ninja ../llvm -DLLVM_ENABLE_PROJECTS="tools;clang;compiler-rt" -DLLVM_TARGETS_TO_BUILD="X86;ARM"  -DLLVM_ENABLE_ASSERTIONS=ON -DLLVM_ENABLE_RTTI=ON-DLLVM_OPTIMIZED_TABLEGEN=ON -DCMAKE_BUILD_TYPE=Release && \
-    ninja -j4 && ninja install && \
+# Set up SSH keys and clone Git repository
+RUN mkdir ~/.ssh
 
-RUN git clone https://github.com/Moh3nsalehi/AutoPatchCode.git
 
-# copy the custom LLVM files from AutoPatchCode to the llvm-project
+# Set the working directory
+WORKDIR /AutoPatchCode
+COPY . .
 
-RUN cd ../..
-RUN cp AutoPatchCode/LLVM/BasicBlock.cpp llvm-project/llvm/lib/IR/BasicBlock.cpp && \
-    cp AutoPatchCode/LLVM/BasicBlock.h llvm-project/llvm/include/llvm/IR/BasicBlock.h && \
-    cp AutoPatchCode/LLVM/IRBuilder.h llvm-project/llvm/include/llvm/IR/IRBuilder.h && \
+RUN git clone --depth 1 --branch release/13.x https://github.com/llvm/llvm-project.git && \
+    cd llvm-project && \
+    mkdir build && cd build && \
+    cmake -G Ninja ../llvm \
+        -DLLVM_ENABLE_PROJECTS="tools;clang;compiler-rt" \
+        -DLLVM_TARGETS_TO_BUILD="X86;ARM" \
+        -DLLVM_ENABLE_ASSERTIONS=ON \
+        -DLLVM_ENABLE_RTTI=ON \
+        -DLLVM_OPTIMIZED_TABLEGEN=ON \
+        -DCMAKE_BUILD_TYPE=Release
 
-# copy the passes from AutoPatchCode to the llvm-project
+RUN cp LLVM/BasicBlock.cpp llvm-project/llvm/lib/IR/BasicBlock.cpp && \
+    cp LLVM/BasicBlock.h llvm-project/llvm/include/llvm/IR/BasicBlock.h && \
+    cp LLVM/IRBuilder.h llvm-project/llvm/include/llvm/IR/IRBuilder.h
 
-RUN cp -r AutoPatchCode/LLVM/Passes/AutoPatchFirstPass llvm-project/llvm/lib/Transforms && \
-    cp -r AutoPatchCode/LLVM/Passes/AutoPatchSecondPass llvm-project/llvm/lib/Transforms && \
-    cp AutoPatchCode/LLVM/Passes/CMakeLists.txt llvm-project/llvm/lib/Transforms
+RUN cp -r Passes/AutoPatchFirstPass llvm-project/llvm/lib/Transforms && \
+    cp -r Passes/AutoPatchSecondPass llvm-project/llvm/lib/Transforms && \
+    cp Passes/CMakeLists.txt llvm-project/llvm/lib/Transforms
 
-# give users shell access to the container
+RUN cd llvm-project/build && \
+    ninja -j4
 
 CMD ["/bin/bash"]
-
-
-
-
-
-
