@@ -1,3 +1,5 @@
+# This dockerfile is meant to be run from the root directory of AutoPatchCode, not as a standalone file.
+
 # Use an official Ubuntu 20.04 image as a base
 FROM ubuntu:20.04
 
@@ -37,6 +39,8 @@ RUN mkdir ~/.ssh
 
 # Set the working directory
 WORKDIR /AutoPatchCode
+
+# Make sure the local environment patch points to the root directory of AutoPatchCode
 COPY . .
 
 RUN git clone --depth 1 --branch release/13.x https://github.com/llvm/llvm-project.git && \
