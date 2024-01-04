@@ -1,5 +1,5 @@
 # Docker Environment  
-The dockerfile contains the instructions to build the docker image which provides a replicated working environment to work with AutoPatch. The container allows users to run AutoPatch right away as it contains all the necessary dependencies, modifies LLVM, and builds it beforehand. The user is presented with a bash shell upon running the container, where they can run AutoPatch.
+The dockerfile contains the instructions to build the docker image which provides a replicated working environment and sandbox to work with AutoPatch. The container allows users to run AutoPatch right away as it contains all the necessary dependencies, modifies LLVM, and builds it beforehand. The user is presented with a bash shell upon running the container, where they can run AutoPatch.
 
 ## Building the Docker Image
 To build the docker image, run the following command from the root directory of the repository (the AutoPatchCode directory, not this directory):
@@ -15,3 +15,8 @@ To run the docker image after building it, run the following command in the same
 sudo docker run -it my_image:latest
 ```
 This presents the user with a bash shell where they can run AutoPatch.
+
+
+## Random Script Commands
+
+```./Scripts/instrument.sh ./Testcases/CVE-2020-10062\(auto\)/patchedFunc.c```

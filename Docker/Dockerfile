@@ -65,4 +65,7 @@ RUN cp -r Passes/AutoPatchFirstPass llvm-project/llvm/lib/Transforms && \
 RUN cd llvm-project/build && \
     ninja -j4
 
+ENV LLVM_BUILD_DIR=./llvm-project/build
+ENV AUTOPATCHCODE_DIR=./
+
 CMD ["/bin/bash"]
