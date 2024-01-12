@@ -61,11 +61,14 @@ Follow the instructions [here](https://www.zephyrproject.org/getting-started-wit
 
 ### Run LLVM Passes Using Shell Scripts
 
-To streamline development work, we have written [scripts](Scripts) for executing the instrumentation and analysis components of AutoPatch. They work as follows: 
+To streamline development work, we have written [scripts](Scripts) for executing the instrumentation and analysis components of AutoPatch.  
+
+Before running the scripts, make sure to:
 - Change the file path constants within the shell scripts to match the local file structure.
 - Choose a test C file from the example CVEs in [`Testcases`](Testcases).
 - Change the file names, function names, patch type, and line numbers in the `instrument.sh` and `analysis.sh` file to match the C file.
-- Run `instrument.sh`, get the `.bc` file, which contains the instrumented llvm IR. Then use that to run `analysis.sh` to get the `.o` file (see [`Scripts`](Scripts)), which represents the patched executable, capable on running on the targeted hardware.
+
+Run `instrument.sh`, get the `.bc` file, which contains the instrumented llvm IR. The instrumentation allos the executable to be patched by AutoPatch if necessary in the future. To do so, use the `.bc` file to run `analysis.sh` to get the `.o` file (see [`Scripts`](Scripts)), which represents the patched executable, capable on running on the targeted hardware.
 
 ### Flash and Execute
 
