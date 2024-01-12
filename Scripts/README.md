@@ -1,7 +1,9 @@
 # Scripts
 Before running any scripts, ensure the `LLVM_BUILD_DIR` environment variable is set correctly:  
 For instance: `export LLVM_BUILD_DIR=~/llvm-project/build`  
-Similarly, make sure the `AUTOPATCHCODE_DIR` environment variable is set correctly.
+Similarly, make sure the `AUTOPATCHCODE_DIR` environment variable is set correctly.  
+These environment variables are used by the scripts to locate the LLVM build directory and the AutoPatch source code directory.  
+
 ## instrument.sh
 ### Overview
 `instrument.sh` generates the instrumented LLVM IR for the patched C file. First, it uses LLVM's clang to generate the LLVM IR. Then, using `ninja` it builds LLVM with the [AutoPatchFirstPass](Passes/AutoPatchFirstPass/) pass. Finally, using LLVM's opt, it runs the [AutoPatchFirstPass](Passes/AutoPatchFirstPass/) pass on the generated LLVM IR to produce the instrumented LLVM IR.

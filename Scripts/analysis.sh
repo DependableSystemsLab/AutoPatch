@@ -70,8 +70,10 @@ fi
 
 read -p "Enter CVE id: " CVEid
 read -p "Enter CVE year: " CVEyear
-#HOTPATCH_DIRECTORY=~/workspace/DependableSystemsLab/AutoPatchCode/Testcases/CVE-${CVEyear}-${CVEid}'(auto)'/patchedFunc.ll
+
 HOTPATCH_DIRECTORY=${AUTOPATCHCODE_DIR}/Testcases/CVE-${CVEyear}-${CVEid}'(auto)'/patchedFunc.ll
+#copy the ll file to the Results directory:
+cp ${AUTOPATCHCODE_DIR}/Testcases/CVE-${CVEyear}-${CVEid}'(auto)'/patchedFunc.ll ${AUTOPATCHCODE_DIR}/Results/Hotpatch_CVE_${CVEid}.ll
 
 # Build LLVM with LLVMAutoPatchSecond
 # cp $AUTOPATCH_ANALYSIS_REPO/AutoPatchSecondPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchSecondPass/AutoPatchSecondPass.cpp
@@ -93,7 +95,7 @@ end=$(date +%s.%N)
 
 BC_DIR2=$(dirname "${HOTPATCH_DIRECTORY}")
 BASENAME2=$(basename -- "${HOTPATCH_DIRECTORY}")
-INST_BC_FILE2="${BC_DIR2}/${BASENAME2%.*}.bc"
+INST_BC_FILE2="${AUTOPATCHCODE_DIR}/Results/Hotpatch_CVE_${CVEid}.bc"
 
 # Now you can compile the ll file to bc file
 "${LLVM_AS}" "${HOTPATCH_DIRECTORY}" -o "${INST_BC_FILE2}"
@@ -104,7 +106,7 @@ CLANG="${LLVM_BUILD_DIR}/bin/clang"
 TARGET="arm-none-eabi"
 MARCH="armv7e-m"
 MCPU="cortex-m4"
-OBJECT_FILE="${BC_DIR2}/${BASENAME2%.*}.o"
+OBJECT_FILE="${AUTOPATCHCODE_DIR}/Results/Hotpatch_CVE_${CVEid}.o"
 #"$CLANG" "--target=${TARGET}" "-march=${MARCH}" "-mcpu=${MCPU}" "${INST_BC_FILE2}" "-c" "-o" "${OBJECT_FILE}"
 "$CLANG" "--target=${TARGET}" "-march=${MARCH}" "-mcpu=${MCPU}" "${INST_BC_FILE2}" "-c" "-o" "${OBJECT_FILE}" "-Os"
 

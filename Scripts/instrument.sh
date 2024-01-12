@@ -4,9 +4,9 @@
 # example: export LLVM_BUILD_DIR=~/llvm-project/build
 
 # Variables - modify as needed
-AUTOPATCH_INSTRUMENT_REPO=~/test/AutoPatch/AutoPatchFirstPass
-LLVM_PASS_SRC_FOLDER=~/llvm-project/llvm/lib/Transforms/AutoPatch
-#HEADER_DIR=~/AutoPatch/zephyr-main/include/
+# AUTOPATCH_INSTRUMENT_REPO=~/test/AutoPatch/AutoPatchFirstPass
+# LLVM_PASS_SRC_FOLDER=~/llvm-project/llvm/lib/Transforms/AutoPatch
+# HEADER_DIR=~/AutoPatch/zephyr-main/include/
 
 # Check if LLVM_BUILD_DIR is set
 if [[ -z "${LLVM_BUILD_DIR}" ]]; then
