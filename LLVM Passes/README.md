@@ -47,5 +47,5 @@ This ensures LLVM will build these passes, allowing them to be used in the scrip
 
 ### How to run these passes
 
-Please check [Script](../Scripts) folder.
+Please check [Scripts](../Scripts) folder.
 
