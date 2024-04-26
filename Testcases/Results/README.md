@@ -1,0 +1,2 @@
+# Results
+This folder contains the results of running AutoPatch on a set of CVEs. This directory is sorted by CVE. For each CVE, the LLVM IR files (`.bc` and `.ll`) are present, along with the executable object files (`.o`) which can be run as firmware.
