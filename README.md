@@ -33,7 +33,7 @@ Testcases
 - Install the following packages (any modern version):
   - cmake
   - ninja
-  - j-link
+  - J-Link
 - Run the following script:  
 ```shell
 sudo apt-get update && sudo apt-get upgrade
