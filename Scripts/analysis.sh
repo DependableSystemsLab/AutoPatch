@@ -4,17 +4,14 @@
 # example: export LLVM_BUILD_DIR=~/llvm-project/build
 
 # Variables - modify as needed
-LLVM_PASS_SRC_FOLDER=LLVM_BUILD_DIR/../llvm/lib/Transforms/AutoPatch
+AUTOPATCH_ANALYSIS_REPO=~/test/AutoPatch/AutoPatchSecondPass
+LLVM_PASS_SRC_FOLDER=~/llvm-project/llvm/lib/Transforms/AutoPatch
+
+# Please also change the directory of "HOTPATCH_DIRECTORY" if needed.
 
 # Check if LLVM_BUILD_DIR is set
 if [[ -z "${LLVM_BUILD_DIR}" ]]; then
     echo "Please set the LLVM_BUILD_DIR environment variable."
-    exit 1
-fi
-
-# Check if AutoPatchCode repo is cloned
-if [[ -z "${AUTOPATCHCODE_DIR}" ]]; then
-    echo "Please set the AUTOPATCHCODE_DIR environment variable."
     exit 1
 fi
 
@@ -71,12 +68,11 @@ fi
 read -p "Enter CVE id: " CVEid
 read -p "Enter CVE year: " CVEyear
 
-HOTPATCH_DIRECTORY=${AUTOPATCHCODE_DIR}/Testcases/CVE-${CVEyear}-${CVEid}'(auto)'/patchedFunc.ll
-#copy the ll file to the Results directory:
-cp ${AUTOPATCHCODE_DIR}/Testcases/CVE-${CVEyear}-${CVEid}'(auto)'/patchedFunc.ll ${AUTOPATCHCODE_DIR}/Results/Hotpatch_CVE_${CVEid}.ll
+#Please change this directory if needed.
+HOTPATCH_DIRECTORY=~/AutoPatch/Testcases/Results/Hotpatch_CVE_${CVEid}.ll
 
 # Build LLVM with LLVMAutoPatchSecond
-# cp $AUTOPATCH_ANALYSIS_REPO/AutoPatchSecondPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchSecondPass/AutoPatchSecondPass.cpp
+cp $AUTOPATCH_ANALYSIS_REPO/AutoPatchSecondPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchSecondPass/AutoPatchSecondPass.cpp
 cd "${LLVM_BUILD_DIR}"
 ninja
 
@@ -84,10 +80,10 @@ ninja
 start=$(date +%s.%N)
 
 # Run Analysis tool on bc file
-#"${OPT}" -S -enable-new-pm=0 -load "${LLVMAUTOPATCHSECOND}" -time-passes -patching -func-patch-name="${funcPatchName}" -line-num-patch="${lineNumPatchStr}" -output-dir=$HOTPATCH_DIRECTORY -cve-id="${CVEid}" -type-offpatch="${typeOfficialPatch}" -type-patch="${typePatch}" <"${BC_FILE}"> /dev/null
+"${OPT}" -S -enable-new-pm=0 -load "${LLVMAUTOPATCHSECOND}" -time-passes -patching -func-patch-name="${funcPatchName}" -line-num-patch="${lineNumPatchStr}" -output-dir=$HOTPATCH_DIRECTORY -cve-id="${CVEid}" -type-offpatch="${typeOfficialPatch}" -type-patch="${typePatch}" <"${BC_FILE}"> /dev/null
 
 #NEW (AFTER EVALUATION BACK TO THE ABOVE CODE)
-"${OPT}" -S -enable-new-pm=0 -load "${LLVMAUTOPATCHSECOND}" -O1 -time-passes -patching -func-patch-name="${funcPatchName}" -line-num-patch="${lineNumPatchStr}" -output-dir=$HOTPATCH_DIRECTORY -cve-id="${CVEid}" -type-offpatch="${typeOfficialPatch}" -type-patch=$"{typePatch}" <"${BC_FILE}"> /dev/null
+#"${OPT}" -S -enable-new-pm=0 -load "${LLVMAUTOPATCHSECOND}" -O1 -time-passes -patching -func-patch-name="${funcPatchName}" -line-num-patch="${lineNumPatchStr}" -output-dir=$HOTPATCH_DIRECTORY -cve-id="${CVEid}" -type-offpatch="${typeOfficialPatch}" -type-patch=$"{typePatch}" <"${BC_FILE}"> /dev/null
 
 
 # Record end time
@@ -95,7 +91,7 @@ end=$(date +%s.%N)
 
 BC_DIR2=$(dirname "${HOTPATCH_DIRECTORY}")
 BASENAME2=$(basename -- "${HOTPATCH_DIRECTORY}")
-INST_BC_FILE2="${AUTOPATCHCODE_DIR}/Results/Hotpatch_CVE_${CVEid}.bc"
+INST_BC_FILE2="${BC_DIR2}/${BASENAME2%.*}.bc"
 
 # Now you can compile the ll file to bc file
 "${LLVM_AS}" "${HOTPATCH_DIRECTORY}" -o "${INST_BC_FILE2}"
