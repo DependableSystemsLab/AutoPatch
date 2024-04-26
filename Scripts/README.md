@@ -5,7 +5,7 @@ These environment variables are used by the scripts to locate the LLVM build dir
 
 ## instrument.sh
 ### Overview
-`instrument.sh` generates the instrumented LLVM IR for the patched C file. First, it uses LLVM's clang to generate the LLVM IR. Then, using `ninja` it builds LLVM with the [AutoPatchFirstPass](Passes/AutoPatchFirstPass/) pass. Finally, using LLVM's opt, it runs the [AutoPatchFirstPass](Passes/AutoPatchFirstPass/) pass on the generated LLVM IR to produce the instrumented LLVM IR.
+`instrument.sh` generates the instrumented LLVM IR for the input C file. First, it uses LLVM's clang to generate the LLVM IR. Then, using `ninja` it builds LLVM with the [AutoPatchFirstPass](Passes/AutoPatchFirstPass/) pass. Finally, using LLVM's opt, it runs the [AutoPatchFirstPass](Passes/AutoPatchFirstPass/) pass on the generated LLVM IR to produce the instrumented LLVM IR.
 
 ### Operation
 Run `instrument.sh` in the shell with the patched C file as the argument. The script will then ask whether or not it is a patched function. If it is, provide the line numbers containing the patch. If it isn't, no instrumentation will be done. Confirm the LLVM IR file is produced in the same directory as the C file.
