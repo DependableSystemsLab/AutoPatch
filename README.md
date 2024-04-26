@@ -6,7 +6,7 @@ This artifact includes the implementation of *AutoPatch* and the source code of 
 To evaluate *AutoPatch* and obtain results similar to those presented in the paper, access to one of the following **three** boards is required: nRF52840, STM32-F446RE, or ESP-WROOM32. It is important to note that, as explained in the paper, the LLVM passes (i.e., **Instrumentation and Analysis components**) do not necessitate a board and can be executed on general-purpose computers.
 
 #### The structure of the artifact is as follows:
-
+```
 LLVM Passes
 |
 └─── AutoPatchFirstPass    <--- Instrumentation Pass
@@ -24,6 +24,7 @@ Testcases
 |
 └─── CVE Dataset
 │   │   Results
+```    
 
 
 ### Configure the working directory
