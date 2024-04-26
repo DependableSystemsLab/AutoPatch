@@ -26,7 +26,7 @@ Testcases
 │   │   Results
 ```    
 
-## HowTo Run AutoPatch
+## How To Run AutoPatch
 
 ### Configure the working directory
 
