@@ -25,7 +25,7 @@ cmake -G Ninja ../llvm -DLLVM_ENABLE_PROJECTS="tools;clang;compiler-rt" -DLLVM_T
 ninja -j4
 sudo ninja install  
 ```
-*The `DLLVM_TARGETS_TO_BUILD` cmake flag can be modified to build patches targeting other architectures.  
+*The `DLLVM_TARGETS_TO_BUILD` cmake flag can be modified to build patches targeting other architectures. Please note that this should be modified when building for architectures other than X86 and ARM.
 
 2. Add the `AutoPatchFirstPass` and `AutoPatchSecondPass` folders to the `llvm-project/lib/Transforms` directory. Update `CMakeLists.txt` to include the new passes.
 
