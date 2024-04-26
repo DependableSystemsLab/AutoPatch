@@ -1,6 +1,7 @@
 # LLVM Passes
 
-AutoPatch relies on 2 LLVM passes to perform its instrumentation and generate the hotpatch. The first pass, `AutoPatchFirstPass`, is responsible for instrumentation and is used in the [`instrument.sh`](../Scripts/instrument.sh) script. 
+AutoPatch relies on 2 LLVM passes to perform its instrumentation and generate the hotpatch. 
+The first pass, `AutoPatchFirstPass`, is responsible for instrumentation and is used in the [`instrument.sh`](../Scripts/instrument.sh) script. 
 This pass adds trampolines in the four locations (i.e., **Instrumentation Locations**) of each function: 
 1) Function entrance
 2) After function calls
