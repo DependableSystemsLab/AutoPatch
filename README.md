@@ -55,12 +55,14 @@ Please check [LLVM Passes](LLVM%20Passes) folder.
 
 ### VSCode Extensions
 
-Download the following VSCode extensions for Zephyr and Nordic Semiconductor (found in the VSCode extension marketplace):
+Download the following VSCode extensions for ZephyrOS and Nordic Semiconductor (found in the VSCode extension marketplace):
 
 - DeviceTree for the Zephyr Project
 - Kconfig for the Zephyr Project
 - nRF Connect for VSCode
 - nRF Terminal
+
+Note that these extensions are required to run on the nRF52840 board.
 
 ### Connecting Nordic Semiconductor ARM Board
 
