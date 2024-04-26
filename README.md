@@ -1,4 +1,4 @@
-# AutoPatchCode Setup
+# AutoPatch Artifact
 
 Welcome to the artifact for the CCS 2024 submission of our paper, titled "AutoPatch: Automated Generation of Hotpatches for Real-Time Embedded Devices". 
 
