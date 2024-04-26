@@ -31,11 +31,9 @@ Testcases
 ### Configure the working directory
 
 - Install the following packages (any modern version):
-  - git
   - gcc
   - cmake
   - ninja
-  - vim
   - j-link
 - Run the following script:  
 ```shell
