@@ -27,7 +27,7 @@ sudo ninja install
 ```
 **The `DLLVM_TARGETS_TO_BUILD` cmake flag can be modified to build patches targeting other architectures. Please note that this should be modified when building for architectures other than X86 and ARM.**
 
-2. Add the `AutoPatchFirstPass` and `AutoPatchSecondPass` folders to the `llvm-project/lib/Transforms` directory. Update `CMakeLists.txt` to include the new passes.
+2. Add the `AutoPatchFirstPass` and `AutoPatchSecondPass` folders to the `llvm-project/lib/Transforms` directory. Update `CMakeLists.txt` to include the new passes. We have included our CMakeLists.txt in this directory as an example.
 
 3. Ensure `llvm` is on branch `release/13.x`. Since AutoPatch uses specific functionality not found in this version of `llvm`, update the following files:  
     `llvm-project/llvm/include/llvm/IR/BasicBlock.h`  
