@@ -51,7 +51,7 @@ Download the following software applications:
 
 ### Configuring LLVM
 
-Please check [LLVM Passes](LLVM Passes) folder.
+Please check [LLVM Passes](LLVM%20Passes) folder.
 
 ### VSCode Extensions
 
