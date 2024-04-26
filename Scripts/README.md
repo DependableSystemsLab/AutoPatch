@@ -1,7 +1,6 @@
 # Scripts
 Before running any scripts, ensure the `LLVM_BUILD_DIR` environment variable is set correctly:  
 For instance: `export LLVM_BUILD_DIR=~/llvm-project/build`  
-Similarly, make sure the `AUTOPATCHCODE_DIR` environment variable is set correctly.  
 These environment variables are used by the scripts to locate the LLVM build directory and the AutoPatch source code directory.  
 
 ## instrument.sh
