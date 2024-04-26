@@ -3,13 +3,13 @@
 AutoPatch relies on 2 LLVM passes to perform its instrumentation and generate the hotpatch. 
 
 The first pass, `AutoPatchFirstPass`, is responsible for instrumentation and is used in the [`instrument.sh`](../Scripts/instrument.sh) script. 
-This pass adds trampolines in the four locations (i.e., **Instrumentation Locations**) of each function: 
+This pass inserts trampolines in the four locations (i.e., **Instrumentation Locations**) of each function: 
 1) Function entrance
 2) After function calls
 3) Inside and after complex loops
 4) Inside and after complex branches
    
-The second pass, `AutoPatchSecondPass`, generates the hotpatch. It is meant to be run after a security vulnerability is discovered in the vulnerable function. Taking in the patched function, it selects the best trampoline to generate the hotpatch will. The resulting hotpatch is an executable that can be stored into the running embedded device.
+The second pass, `AutoPatchSecondPass`, generates the hotpatch based on the official patch (i.e., patched instrumented function). It is meant to be run after a security vulnerability is discovered in the vulnerable function. Taking in the patched function, it selects the best trampoline to generate the hotpatch will. The resulting hotpatch is an executable file that can be stored into the running embedded device.
 
 Both passes are written in C++ and are located in the `LLVM Passes` directory.
 
