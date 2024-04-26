@@ -31,7 +31,6 @@ Testcases
 ### Configure the working directory
 
 - Install the following packages (any modern version):
-  - gcc
   - cmake
   - ninja
   - j-link
