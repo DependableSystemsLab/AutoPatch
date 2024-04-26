@@ -4,8 +4,8 @@
 # example: export LLVM_BUILD_DIR=~/llvm-project/build
 
 # Variables - modify as needed
-# AUTOPATCH_INSTRUMENT_REPO=~/test/AutoPatch/AutoPatchFirstPass
-# LLVM_PASS_SRC_FOLDER=~/llvm-project/llvm/lib/Transforms/AutoPatch
+AUTOPATCH_INSTRUMENT_REPO=~/test/AutoPatch/AutoPatchFirstPass
+LLVM_PASS_SRC_FOLDER=~/llvm-project/llvm/lib/Transforms/AutoPatch
 # HEADER_DIR=~/AutoPatch/zephyr-main/include/
 
 # Check if LLVM_BUILD_DIR is set
@@ -52,7 +52,7 @@ fi
 "${LLVM_CLANG}" -O0 -g -S -emit-llvm -o "${LL_FILE}" -c "${SRC_FILE}"
 
 # Build LLVM with LLVMAutoPatchFirst
-# cp $AUTOPATCH_INSTRUMENT_REPO/AutoPatchFirstPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchFirstPass/AutoPatchFirstPass.cpp
+cp $AUTOPATCH_INSTRUMENT_REPO/AutoPatchFirstPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchFirstPass/AutoPatchFirstPass.cpp
 cd "${LLVM_BUILD_DIR}"
 ninja
 
