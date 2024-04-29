@@ -4,7 +4,7 @@
 # example: export LLVM_BUILD_DIR=~/llvm-project/build
 
 # Variables - modify as needed
-AUTOPATCH_ANALYSIS_REPO=~/test/AutoPatch/AutoPatchSecondPass
+AUTOPATCH_ANALYSIS_REPO=~/test/AutoPatch/AutoPatchSecondPass #Includes AutoPatch source code
 LLVM_PASS_SRC_FOLDER=~/llvm-project/llvm/lib/Transforms/AutoPatch
 
 # Please also change the directory of "HOTPATCH_DIRECTORY" if needed.

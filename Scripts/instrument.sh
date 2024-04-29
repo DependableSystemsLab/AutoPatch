@@ -4,7 +4,7 @@
 # example: export LLVM_BUILD_DIR=~/llvm-project/build
 
 # Variables - modify as needed
-AUTOPATCH_INSTRUMENT_REPO=~/test/AutoPatch/AutoPatchFirstPass
+AUTOPATCH_INSTRUMENT_REPO=~/test/AutoPatch/AutoPatchFirstPass #Includes AutoPatch source code
 LLVM_PASS_SRC_FOLDER=~/llvm-project/llvm/lib/Transforms/AutoPatch
 # HEADER_DIR=~/AutoPatch/zephyr-main/include/
 
