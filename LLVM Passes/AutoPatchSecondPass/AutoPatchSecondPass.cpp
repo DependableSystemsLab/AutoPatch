@@ -70,11 +70,11 @@ cl::opt<std::string> CVEIDNAME("cve-id",
 
 cl::opt<std::string> TypePatch("type-patch",
   cl::desc("Specify type of the patch"),
-  cl::init("drop")); // Set default value to true
+  cl::init("drop")); // Set default value to drop
 
 cl::opt<std::string> TypeoffPatch("type-offpatch",
   cl::desc("Specify type of the offcial patch"),
-  cl::init("filter")); // Set default value to true
+  cl::init("filter")); // Set default value to filter
 
 // Demangles the function name.
 std::string demangle(const char *name) {
@@ -90,7 +90,7 @@ void addDebugMetaData(Instruction *I, char *debugInfo) {
   LLVMContext &C = I->getContext();
   MDNode *N = MDNode::get(C, MDString::get(C, debugInfo));
   char DebugMetadata[100];
-  strcpy(DebugMetadata, "cpen400Debug.");
+  strcpy(DebugMetadata, "autopatchDebug.");
   strcat(DebugMetadata, debugInfo);
   I->setMetadata(DebugMetadata, N);
 }
@@ -271,8 +271,6 @@ struct AutoPatchSecondPass : public FunctionPass{
     FunctionType *InfoFuncTy = FunctionType::get(Int64Ty, {StackFramePtrTy}, false);
     
     // Create the "printf" function declaration
-    // For when you want to add printf into your code.
-    //*****IMPORTANT: It creates this definition all times while if we don't have printf, we should not define printf in the program! (8 Nov 2023)
     FunctionType* printfType = FunctionType::get(IntegerType::getInt32Ty(Context), PointerType::get(IntegerType::getInt8Ty(Context), 0), true);
     Function* printfFunc = Function::Create(printfType, Function::ExternalLinkage, "printf", M.get());
 
@@ -405,7 +403,7 @@ struct AutoPatchSecondPass : public FunctionPass{
               }
               i++;
             }else{
-              // debug << "*Allocation instruction is retval: " << *AI << "\n"; //I think we don't need to create a retval allocation since we don't use it.
+              // debug << "*Allocation instruction is retval: " << *AI << "\n"; 
               // Instruction *ins_temp = inst->clone();
               // trackOldNewInstr[inst] = ins_temp;
               // ins_temp->setName(inst->getName());
@@ -414,7 +412,6 @@ struct AutoPatchSecondPass : public FunctionPass{
           }
         }
 
-      ////////////////********PROBLEMS******//////////////////
       
       // debug << " Instruction and Value : " << *I << " , " << *V << "\n";
 
@@ -461,10 +458,10 @@ struct AutoPatchSecondPass : public FunctionPass{
 
     // Add allocation instructions to the entry basic block to avoid creating a new entry basic block!
 
-    //for (auto inst : temp_hotPatchInstSet) { //Commented since it didn't keep the order of the allocation instructions (8 May)
-    for (auto inst : alloc_vars_temp) { //In this vector, the order of allocation instructions is OK, so I get them from this vector. (8 May)
+    //for (auto inst : temp_hotPatchInstSet) { 
+    for (auto inst : alloc_vars_temp) { 
 
-      if(isInMap2(inst)){//But we need also checks the allocation instruction is in the patch or not, so we checked like this. (8 May)
+      if(isInMap2(inst)){
 
         if(AllocaInst *AI = dyn_cast<AllocaInst>(inst)){
         // debug << "*Allocation instruction is : " << *AI << "\n";
@@ -473,8 +470,8 @@ struct AutoPatchSecondPass : public FunctionPass{
         // ins_temp->setName(inst->getName());
         // Builder.Insert(ins_temp);
         // AllocaInst *ins_allocation = cast<AllocaInst>(ins_temp); 
-        if(AI->getName() != "retval"){ //We shouldn't get values from stack_frame for "retval"
-          // if(i < values.size()){ //Check for more than 4 variables in the program (***Think about that how can we handle this for many variables!)
+        if(AI->getName() != "retval"){ 
+          // if(i < values.size()){ //Check for more than 4 variables in the program 
             if(AI->getAllocatedType()->getTypeID() == llvm::Type::IntegerTyID && AI->getAllocatedType()->getIntegerBitWidth() == 8){
                 Instruction *ins_temp = Builder.CreateAlloca(Int8Ty, nullptr, AI->getName());
                 trackOldNewInstr[AI] = ins_temp;
@@ -552,7 +549,6 @@ struct AutoPatchSecondPass : public FunctionPass{
               ins_temp->setName(inst->getName());
               Builder.Insert(ins_temp);
             }
-            // //*** TWO Assumption: 1) Maximum 3 values for passing via stack , 2) Just these types of allocations ***//
             // debug << "I am not retval so store" << *ins_allocation << " " << *(ins_allocation->getAllocatedType()) << "\n";
             // // if(AI->getAllocatedType() == Int8Ty){
             // if (ins_allocation->getAllocatedType()->getTypeID() == llvm::Type::IntegerTyID && ins_allocation->getAllocatedType()->getIntegerBitWidth() == 8) {
@@ -590,8 +586,6 @@ struct AutoPatchSecondPass : public FunctionPass{
       }
     }
 
-    /// **********ATTENTION: Correct this part ********** ///
-    // We don't store a value from stack into the global variables of the patch and we should do that! //
     for(GlobalVariable *GV : patchGlobalVar){
       // debug << "*Global Variable is : " << *GV  << " and " << i << "\n";
       Value *V = values[i];
@@ -651,7 +645,6 @@ struct AutoPatchSecondPass : public FunctionPass{
         string DemangledFuncCallName = demangle(CIFuncName.str().c_str());
         if (DemangledFuncCallName.find("printf") != string::npos || 
               DemangledFuncCallName.find("dbg") != string::npos) {
-                // I changed from && to || (UPDATE 20 MAY)
                 // debug << *CI << "\n";
                 continue;
         }
@@ -799,9 +792,6 @@ struct AutoPatchSecondPass : public FunctionPass{
 
         if(pathc_type == "filter"){
           if(BI->getNumSuccessors() == 2){
-            // I commented this part, because I think it is not OK!! Date: 14 Apr (When I was working on CVE 10063)
-            // *** ATTENTION: I assume in the body of the branch of patch instruction is not important and we just want to retutn -22!
-            // **** Think About this !!!!!
 
 
 
@@ -854,7 +844,7 @@ struct AutoPatchSecondPass : public FunctionPass{
                       normal = false;
                       if(ThenBB==NULL){
 
-                        debug<< "******* I AM HERE 1\n"; 
+                        // debug<< "******* I AM HERE 1\n"; 
                         ThenBB = BasicBlock::Create(Context, "if_then", InfoFunc);
                         ExitBB = BasicBlock::Create(Context, "return", InfoFunc);
                         Builder.SetInsertPoint(ThenBB);
@@ -868,7 +858,7 @@ struct AutoPatchSecondPass : public FunctionPass{
                           Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), 2), OpAlloca);
 
                           //Get value from pc (R6) in the stackframe then add a offset value (for now, "fixed value 4")
-                          Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); //4 is an example, you should think for general offset
+                          Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); 
                           Builder.CreateStore(R6_plus, RetCodeAlloca);
                         }
                         // // *** For validating the generated patch uncomment these, but for Evaluation comment them:
@@ -978,15 +968,12 @@ struct AutoPatchSecondPass : public FunctionPass{
                 Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), 2), OpAlloca);
 
                 //Get value from pc (R6) in the stackframe then add a offset value (for now, "fixed value 4")
-                Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); //4 is an example, you should think for general offset
+                Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); 
                 Builder.CreateStore(R6_plus, RetCodeAlloca);
               }
 
               //else if(typePatch == "none"){
-                // debug << "It is none patch \n"; // Example for this scenario is CVE-10023
-                //**What we should do here?!** We should not store any value into op and ret_code and also calculate and return the value!
-
-
+                // debug << "It is none patch \n"; 
               //}
               
               // Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), 1), OpAlloca);
@@ -1060,8 +1047,6 @@ struct AutoPatchSecondPass : public FunctionPass{
             // debug << "I am here for " << *BI << "\n";
             BasicBlock *ifEndBB = BI->getSuccessor(0);
             std::string endBBName = ifEndBB->getName().str();
-            //UPDATE 20 MAY: I had problem for CVE 10023, when we have two if statements, it didn't go to the next if since with previous code, we replace
-            //"if.end" to "return" while maybe the next if.end belongs to the patch and it has other instructions. 
             if(endBBName.find("end") != std::string::npos && std::find(lnum.begin(), lnum.end(), getSourceCodeLine(ifEndBB->getFirstNonPHI())) != lnum.end()){
               
               Builder.SetInsertPoint(BBMap[I->getParent()]);
@@ -1147,7 +1132,7 @@ struct AutoPatchSecondPass : public FunctionPass{
                   Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), -22), RetCodeAlloca);
                 }else if(typePatch == "redirect"){
                   Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), 2), OpAlloca);
-                  Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); //4 is an example, you should think for general offset
+                  Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); 
                   Builder.CreateStore(R6_plus, RetCodeAlloca);
                 }
                 // // *** For validating the generated patch uncomment these, but for Evaluation comment them:
@@ -1192,7 +1177,7 @@ struct AutoPatchSecondPass : public FunctionPass{
                   Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), -22), RetCodeAlloca);
                 }else if(typePatch == "redirect"){
                   Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), 2), OpAlloca);
-                  Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); //4 is an example, you should think for general offset
+                  Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); 
                   Builder.CreateStore(R6_plus, RetCodeAlloca);
                 }
                 // // *** For validating the generated patch uncomment these, but for Evaluation comment them:
@@ -1237,7 +1222,7 @@ struct AutoPatchSecondPass : public FunctionPass{
           continue;
         }
       }else if(isa<ReturnInst>(I)){
-        continue;// I added this for CVE 2784. (Update 20 May)
+        continue;
       }
       // else if(LoadInst *LI = dyn_cast<LoadInst>(I)){
 
@@ -1270,7 +1255,7 @@ struct AutoPatchSecondPass : public FunctionPass{
         Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), -22), RetCodeAlloca);
       }else if(typePatch == "redirect"){
         Builder.CreateStore(ConstantInt::get(Type::getInt32Ty(Context), 2), OpAlloca);
-        Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4)); //4 is an example, you should think for general offset
+        Value *R6_plus = Builder.CreateAdd(R6, ConstantInt::get(Type::getInt32Ty(Context), 4));
         Builder.CreateStore(R6_plus, RetCodeAlloca);
       }
       // // *** For validating the generated patch uncomment these, but for Evaluation comment them:
@@ -1302,7 +1287,6 @@ struct AutoPatchSecondPass : public FunctionPass{
     }
     for(auto &Inst : trackOldNewInstr){
       Instruction *instemp = Inst.second;
-      // debug << "KHODA : " << *instemp << "\n";
       for (unsigned int i = 0; i < instemp->getNumOperands(); i++) {
         Value* op = instemp->getOperand(i); // Operands of new Instructions
         for (auto &oldNew : trackOldNewInstr) {
@@ -1391,7 +1375,7 @@ struct AutoPatchSecondPass : public FunctionPass{
   // }
 
   void insertInMapPDT(int linenum, BasicBlock *BB_tempp) {
-    //debug << "Inserting into map: " << linenum << "\n";// *********The linumber is wrong!!! Fix this******//
+    //debug << "Inserting into map: " << linenum << "\n";
     triggerInfoPDT[linenum] = BB_tempp;
   }
 
@@ -1568,7 +1552,7 @@ struct AutoPatchSecondPass : public FunctionPass{
       }
     }
     //reverse(tempBB.begin(), tempBB.end());
-    // tempBB.push_back(BB_P); // Add Patch Basic Block *NEW (22 APR) due to CVE 10063!
+    // tempBB.push_back(BB_P); 
     return tempBB;
   }
 
@@ -1584,7 +1568,6 @@ struct AutoPatchSecondPass : public FunctionPass{
       
       // debug << "Values: " << *value_temp << "\n";
 
-      //Do something here
       //Result[LineNumber] = ResultString;
     }
     
@@ -1617,7 +1600,6 @@ struct AutoPatchSecondPass : public FunctionPass{
     //Sorting the hotpatch:
     reverse(allBB.begin(), allBB.end());
     for (auto b : allBB) {
-      // debug << "I am HERE \n";
     // Iterate over all the instructions within a basic block.
       for (BasicBlock::const_iterator It = b->begin(); It != b->end(); ++It) {
         Instruction *ins = const_cast<llvm::Instruction *>(&*It);
@@ -1636,7 +1618,6 @@ struct AutoPatchSecondPass : public FunctionPass{
     //   debug << "The Temp Instructions: " << *ins_temp2 << "\n" ;
     // }
     
-    //This part is new (24Apr). Because it maybe the patch instructions has the TRAMPOLINE in their code, so it should be removed!
     for(auto Ins : patchInstSet){
       Instruction *ins = const_cast<llvm::Instruction *>(&*Ins);
       if(auto CI = dyn_cast<CallInst>(ins)){
@@ -1954,7 +1935,6 @@ struct AutoPatchSecondPass : public FunctionPass{
 
 
 
-        //check constant?
         
 
         // if(auto TaintedVar = dyn_cast<Instruction>(&*(SI->getPointerOperand()))){
@@ -2157,7 +2137,6 @@ struct AutoPatchSecondPass : public FunctionPass{
         }
 
         // if (auto* GEP = dyn_cast<GetElementPtrInst>(val1)) {
-        //   debug << "*****************HELLLLLLLLLLLLLLLO: " << "\n";
         //   Value* ptrOp = GEP->getPointerOperand();
         //   if (auto* GV = dyn_cast<GlobalVariable>(ptrOp)) {
         //     debug << "*****************GLOBAL: " << *GV << "\n";
@@ -2202,12 +2181,11 @@ struct AutoPatchSecondPass : public FunctionPass{
             }
           }
         }
-      }else if(isa<llvm::IntToPtrInst>(ValueUser)){ //Specially for CVE-2020-10021
+      }else if(isa<llvm::IntToPtrInst>(ValueUser)){ 
 
         IntToPtrInst *ZE = cast<IntToPtrInst>(ValueUser);
         //debug << "*** While *** User Instruction for value: " << *ZE <<"\n";
         auto val1 = ZE->getOperand(0);
-        //debug << "*** Special *** : " << *val1 <<"\n";
 
         if(isa<AllocaInst>(val1)){
           Instruction *ValueUserInst = dyn_cast<Instruction>(val1);
@@ -2348,7 +2326,6 @@ struct AutoPatchSecondPass : public FunctionPass{
 
 
     // Instruction *ins_temp = (*(patchInstSet.begin()))->getPrevNonDebugInstruction();//Get the previous instruction of the patch's first instruction. 
-    // //For checking "Do we have to analyze this basic block or not."
 
     // for (auto b : findBBs(BB_CP, BB_P, F, DT, PDT)) {
     //   // Iterate over all the instructions within a basic block.
@@ -2414,13 +2391,10 @@ struct AutoPatchSecondPass : public FunctionPass{
 
 
     //           // if(val2 == (*patchValueSet.begin())){
-    //           //   //debug << "OKKKK" << *(*patchValueSet.begin()) << ", and " << (*patchValueSet.end()) <<"\n";
     //           //   patchValueSet.erase((*patchValueSet.begin()));
     //           //   insertInSet(val1);
-    //           //   //debug << "OKKKK: " << *(*patchValueSet.begin()) << ", and " << (*patchValueSet.end())<<"\n";
 
     //           // }else if(val2 == (*patchValueSet.end())){
-    //           //   //debug << "OKKKK****" << "\n";
     //           //   patchValueSet.erase((*patchValueSet.end()));
     //           //   insertInSet(val1);
     //           // }else{
@@ -2492,8 +2466,6 @@ struct AutoPatchSecondPass : public FunctionPass{
     // }
   }
 
-  //Check this function with Abraham!!
-  //It is very important function but it seems it does not correct.
   void patchAnalyze(){
     std::vector<Value*> values;
     std::vector<string> variables;
@@ -2532,7 +2504,6 @@ struct AutoPatchSecondPass : public FunctionPass{
         // debug << "The value name: " << *val1 << ", " << "\n";
         //insertInMapPVM(pis,val1);
 
-        //?????????What Should I do? The second value is Empty!!
         
       }else if (isa<llvm::CmpInst>(pis)){
         //debug << "This instruction is Compare: " << *pis << "\n";
@@ -2600,8 +2571,6 @@ struct AutoPatchSecondPass : public FunctionPass{
         getAnalysis<PostDominatorTreeWrapperPass>().getPostDomTree();
     LoopInfo &LI = getAnalysis<LoopInfoWrapperPass>().getLoopInfo();
 
-    //***************Fix this*************//
-
     bool done = false;
     bool seeFirst = false;
     bool isDynamicNested = false;
@@ -2636,7 +2605,6 @@ struct AutoPatchSecondPass : public FunctionPass{
 
           //Add allocation instructions in the alloc_vars_temp
           if(isa<llvm::AllocaInst>(ins)){ 
-            //* I used this vector for keep order of the allocation instructions (the order of these instructions in this vector is OK) (8 May)
             // debug << "aLLOCA Instruction is:  " << *ins << "\n";
             insertInSet3(ins);
           }
@@ -2668,16 +2636,12 @@ struct AutoPatchSecondPass : public FunctionPass{
                   insertInMapPDT(getSourceCodeLine(ins),BB_SI);//So this is a good call patch function that we can use. This is not in the loop or if statements.
                 } 
               }
-              //************We also need to store trampolines that exist in loop/if.*********
-
             }
           }
 
-          //Does not work for patch with multiple lines. (Fixed.)
           //Using metadata for finding the next instructions of a c++ instruction
           //if (getSourceCodeLine(ins) == lineNumPatch[iteratorOnPatch] || (metadatapatch.find(md) != metadatapatch.end() && !isa<CallInst>(&*ins))) {
             
-            // (Update 8 May) *** I changed it because of CVEs like 17445 that each line number has multiple instructions! 
           // if (getSourceCodeLine(ins) == lineNumPatch[iteratorOnPatch] || metadatapatch.find(md) != metadatapatch.end()) {
             if (std::find(lineNumPatch.begin(), lineNumPatch.end(), getSourceCodeLine(ins)) != lineNumPatch.end() 
             || metadatapatch.find(md) != metadatapatch.end()) {
@@ -2742,7 +2706,7 @@ struct AutoPatchSecondPass : public FunctionPass{
       if(Loop* loop = instrIsInLoop(LI,firstPatchInstr)){
         if(loop->getSubLoops().size() != 0){
           isDynamicNested = true;
-          debug << "The patch is in the complex loop so search for trampoline in a loop! \n";
+          // debug << "The patch is in the complex loop so search for trampoline in a loop! \n";
           for (auto b : topoSortBBs(F)) {
             // Iterate over all the instructions within a basic block.
             for (BasicBlock::const_iterator It = b->begin(); It != b->end(); ++It) {
@@ -2755,7 +2719,6 @@ struct AutoPatchSecondPass : public FunctionPass{
                   BasicBlock *BB_SI = CI->getParent();
                   if(instrIsInLoopUtil(loop,CI) != NULL){
                     //It means: the patch is in the loop and also the trampoline is in that loop then it is a good trampoline for the patch
-                    // debug << "New UPDATE: Find Trampoline for nested loop "<< getSourceCodeLine(ins) <<"\n";
                     // insertInMapPDT(getSourceCodeLine(ins),BB_SI);
                     triggerLoopLine = getSourceCodeLine(ins);
                     triggerLoopBlock = BB_SI;
@@ -2849,19 +2812,13 @@ struct AutoPatchSecondPass : public FunctionPass{
     }
     //*** Sill we need to find the call patch. The call patch is not next or previous instruction.***///
     else if(!done){
-    //****Fix These****//
 
-    //****We have to store all patch instructions in previous for loop (iterate on basicblocks) not just the first instruction (patchInst)****//
-
-    //****We have to add checking if statements! by using post dominate.*******//
       if(Loop* loop = instrIsInLoop(LI,firstPatchInstr)){
         // debug << "The Patch is in the for loop" << *firstPatchInstr << "\n";
-         //The patch is in the loop and the call patch is not near that. So we have to find the nearest call patch and put all the loop there. Is it correct?!
+         //The patch is in the loop and the call patch is not near that. So we have to find the nearest call patch and put all the loop there. 
 
-         //Simplicity (Attention): I assume if this happens, the patch is in the simple loop. Because of that reason there is no trampoline near it. 
-         //This assumption is not soundness, but I assume this for now.
+         
         
-        //IMPORTANT UPDATE: This Assumption does not happen, so I need to check is there any trmapoline at the begigging of the loop or not:
         auto *BB_Header = loop->getHeader();
         Instruction* Instrmp =  BB_Header->getFirstNonPHI();
         if(auto CI = dyn_cast<CallInst>(Instrmp)){
@@ -2892,14 +2849,12 @@ struct AutoPatchSecondPass : public FunctionPass{
         }
       }
 
-      //******************ATTENTION*******************// I commented this part since it has problem! (5 MAY) //
-      // //****We also need to check "If statements".******
       // else if(!instrIsInIf(patchInst, BB_End, DT)){
       //      debug << "The Patch is in the if/else   " << *patchInst <<"\n";
 
       // }
       else{
-        // debug << "The Patch is not in the for loop" << *firstPatchInstr << "\n"; //Example: CVE-10021
+        // debug << "The Patch is not in the for loop" << *firstPatchInstr << "\n"; 
         //The patch is not in the loop 
         //debug << "The nearest call patch to this patch is: " << triggerInfoPDT.rbegin()->first << ", " << triggerInfoPDT.rbegin()->second << "\n";
 
@@ -2927,7 +2882,7 @@ struct AutoPatchSecondPass : public FunctionPass{
     }
 
     // set<Instruction *>::reverse_iterator rit;
-    // // Start analysing the patch (saved in the patchInst)
+    // // Start analyzing the patch (saved in the patchInst)
     // for (rit = insSet.rbegin(); rit != insSet.rend(); rit++)
     // {
     //   //Instruction *ins = const_cast<llvm::Instruction *>(&*it);
