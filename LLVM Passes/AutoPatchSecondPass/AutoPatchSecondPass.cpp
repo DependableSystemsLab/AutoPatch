@@ -1674,7 +1674,6 @@ struct AutoPatchSecondPass : public FunctionPass{
     //   debug << *inst << "\n";
     // }
 
-    // writeVectorsToFile("/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2020-10063(auto)/Hotpatch2.ll", temp_hotPatchInstSet , hotPatchInstSet_globalVar);
     writeVectorsToFile(temp_hotPatchInstSet , hotPatchInstSet_globalVar, hotPatchInstSet_structure, lnum);
   }
   
@@ -2842,7 +2841,6 @@ struct AutoPatchSecondPass : public FunctionPass{
           }
         }
       }
-      // writeVectorsToFile("/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2020-10063(auto)/Hotpatch2.ll", patchInstSet , hotPatchInstSet_globalVar);
       writeVectorsToFile(patchInstSet , hotPatchInstSet_globalVar , hotPatchInstSet_structure, lineNumPatch);
 
       //debug << "*********The Patching is Done********"<< "\n";
