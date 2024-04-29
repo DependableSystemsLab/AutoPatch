@@ -133,12 +133,6 @@ struct AutoPatchFirstPass : public ModulePass{
   //std::string funcPatchName = "infoTransfer";
   //std::string funcPatchName = "shell_spaces_trim";
 
-
-  //**** We should take these from USERS like PASS 2!
-  // bool isPatched = true; //If we want to instrument the function that has the patch, Set this TRUE.
-  // int lineNumPatch[3] = {27,28,29}; //If we want to instrument the function that has the patch, Set the pathc line numbers
-  // std::string funcPatchName = "u16_add_overflow";
-
   // Get from USERS:
   bool isPatched = IsPatched;
   std::vector<int> lineNumPatch; 
@@ -180,10 +174,8 @@ struct AutoPatchFirstPass : public ModulePass{
               }
               
               //******After Function Calls****//
-              AutoPatchFirstPass::runOnBasicBlock(BB, M, func);//Done (I think) 
-              //(We have to work on detail of that -> some function we don't need to add call patch)
+              AutoPatchFirstPass::runOnBasicBlock(BB, M, func);
 
-              
 
               //******After Dynamic Loops****//       //******After Complex Loops (Nested Loops)****//
                if(oneTimeAnalyzeLoop){
@@ -195,14 +187,11 @@ struct AutoPatchFirstPass : public ModulePass{
 
 
                 //***********After Nested If*********//
-                ////////////////////////////////Work on That !!!!!!!!!!!!!!!!!!1//////////////////
                 identifyNestedif(func,M);
                 //identifyNestedif2(func, M);
                }
 
-              //******After Dynamic Variables and Assignments****//
-              //*** IMPORTANT: I think this is not exist in CVEs, so let's DO NOT CONSIDER THIS. ****//
-
+              
             }//End of iterate on basic blocks
         }//End of iterate on functions
       
@@ -270,7 +259,6 @@ struct AutoPatchFirstPass : public ModulePass{
 
 
 
-  //******************** Think about it!. Is it correct method and work for all scenarios?!************///
   bool seeNested = false;
   void identifyNestedif(Function *func, Module &M){
     for(Function::iterator BB = func->begin(), E = func->end(); BB != E; ++BB){
@@ -413,7 +401,7 @@ struct AutoPatchFirstPass : public ModulePass{
     // debug << "Finding Nested Loops \n";
     for(auto li = loopinfo->begin(), le = loopinfo->end(); li != le; ++li){
       // debug<<"Size of the loop " <<(*li)->getSubLoops().size() << " and " << (*li)->getLoopDepth() << "\n";
-      if((*li)->getSubLoops().size() != 0){ //This approach doesnot work if the loop has "break" (e.g., CVE 10023)
+      if((*li)->getSubLoops().size() != 0){ 
         // debug<<"Nested Loop is here " <<(*li)->getSubLoops().size() << "\n"; 
 
 
@@ -431,7 +419,6 @@ struct AutoPatchFirstPass : public ModulePass{
         }
 
         //*********** We also have to add trampoline at the beggining of the loops that are inside this loops ****//
-        ////*********** Attention: We don't add trampoline at the end of these loops ****//
         for (auto *Loop : (*li)->getSubLoops()) {
           debug<<" Going forward and inserted inside the nested loops.\n";
           auto *BB_Header = Loop->getHeader();
@@ -454,13 +441,11 @@ struct AutoPatchFirstPass : public ModulePass{
 
         }
 
-        else if((*li)->hasNoExitBlocks()){ //Let's consider Infinite loops also. (We don't have Exit Block)
-        //if we added call function after that, what does that mean? it does not reachable!!!
-        //I think we have to add trampoline at the beggining of this type of loops
+        else if((*li)->hasNoExitBlocks()){ 
           // debug<<"It is infinite nested loop, " << "No BasicBlock" << "\n" ;
         }
 
-        else{//(Multiple Basic Blocks) ********Is this correct and works?!!********
+        else{//(Multiple Basic Blocks) 
           // debug<<"It is NULL, " << "Multiple BasicBlocks"<< "\n" ;
           SmallVector<BasicBlock *> ExitBlocks;
           (*li)->getExitBlocks(ExitBlocks);
@@ -487,10 +472,7 @@ struct AutoPatchFirstPass : public ModulePass{
                 continue;
               }              
             }
-            else{//else? Is it possible we have multiple successors? if yes, what should we do?! 
-              //For now, I put call function for every exit block in this situation 
-              //(But it is not correct! These instructions put call function in the wrong place).
-              //Is there any better solution?
+            else{
               IRBuilder<> IRB(Block);
               // debug<<"The Instruction point: " << Block->getFirstNonPHI() << "\n" ;
               IRB.SetInsertPoint(Block->getFirstNonPHI());
@@ -504,14 +486,10 @@ struct AutoPatchFirstPass : public ModulePass{
         }
       }//End "if" for nested loops
 
-      else{//Why this comes first while third loop is not nested! Is it important for us?! No I don't think so. because of SSC bottom to top
-      //***********here but we have to consider infinte loops//
-      //*********** I think we also have to add trampoline at the beggining of this type of loops (not just after them) ****//
-
+      else{
         // debug<<"It is not Nested Loop\n";
 
-        if((*li)->hasNoExitBlocks()){ //Infinite loops. (We don't have Exit Block)
-        //if we added call function after that, what does that mean? it does not reachable!!!
+        if((*li)->hasNoExitBlocks()){ 
           // debug<<"It is infinite unnested loop, " << "No BasicBlock" << "\n" ;
         }
         else{
@@ -561,9 +539,7 @@ struct AutoPatchFirstPass : public ModulePass{
               trampolineNum++;
             }
 
-              else if((*li)->hasNoExitBlocks()){ //Let's consider Infinite loops also. (We don't have Exit Block)
-              //if we added call function after that, what does that mean? it does not reachable!!!
-              //I think we have to add trampoline at the beggining of this type of loops
+              else if((*li)->hasNoExitBlocks()){ 
                 // debug<<"It is infinite nested loop, " << "No BasicBlock" << "\n" ;
               }
 
@@ -593,10 +569,7 @@ struct AutoPatchFirstPass : public ModulePass{
                       continue;
                     }              
                   }
-                  else{//else? Is it possible we have multiple successors? if yes, what should we do?! 
-                    //For now, I put call function for every exit block in this situation 
-                    //(But it is not correct! These instructions put call function in the wrong place).
-                    //Is there any better solution?
+                  else{
                     IRBuilder<> IRB(Block);
                     // debug<<"The Instruction point: " << Block->getFirstNonPHI() << "\n" ;
                     IRB.SetInsertPoint(Block->getFirstNonPHI());
@@ -642,13 +615,11 @@ struct AutoPatchFirstPass : public ModulePass{
 
             }
 
-              else if((*li)->hasNoExitBlocks()){ //Let's consider Infinite loops also. (We don't have Exit Block)
-              //if we added call function after that, what does that mean? it does not reachable!!!
-              //I think we have to add trampoline at the beggining of this type of loops
+              else if((*li)->hasNoExitBlocks()){ 
                 // debug<<"It is infinite nested loop, " << "No BasicBlock" << "\n" ;
               }
 
-              else{//(Multiple Basic Blocks) ********Is this correct and works?!!********
+              else{//(Multiple Basic Blocks) 
                 // debug<<"It is NULL, " << "Multiple BasicBlocks"<< "\n" ;
                 SmallVector<BasicBlock *> ExitBlocks;
                 (*li)->getExitBlocks(ExitBlocks);
@@ -675,10 +646,7 @@ struct AutoPatchFirstPass : public ModulePass{
                       continue;
                     }              
                   }
-                  else{//else? Is it possible we have multiple successors? if yes, what should we do?! 
-                    //For now, I put call function for every exit block in this situation 
-                    //(But it is not correct! These instructions put call function in the wrong place).
-                    //Is there any better solution?
+                  else{
                     IRBuilder<> IRB(Block);
                     // debug<<"The Instruction point: " << Block->getFirstNonPHI() << "\n" ;
                     IRB.SetInsertPoint(Block->getFirstNonPHI());
@@ -700,13 +668,7 @@ struct AutoPatchFirstPass : public ModulePass{
 
           //debug<<"The first instruction: "<< *(BB_temp1->getFirstNonPHI()) << ", " << *(BB_temp2->getFirstNonPHI()) << "," << *(BB_temp2->getFirstNonPHIOrDbgOrAlloca()) <<"\n";
 
-          //********* Questions: *******//
-          //1) getLoopLatch? Is this correct?
-          //2) Where we have to put the trampoline? (e.g., after load instructions?)
-          //3) When we have to put trampoline? (Which type of loop should be instrumented?)
-
-          //*** This is Sample and Temporary. Working on that! **//
-
+          
           //IRBuilder<> IRB(BB_temp2);
           //debug<<"The Instruction point: " << BB_temp2->getFirstNonPHI() << "\n" ;
           //IRB.SetInsertPoint(BB_temp2->getFirstNonPHI());
@@ -715,8 +677,7 @@ struct AutoPatchFirstPass : public ModulePass{
           //IRB.CreateCall(Fn);
 
 
-          // ** I think we should think about it more! It can be more complex! //
-          //*** Attention: What about those "if" has "for" or "while" loops?! **
+          
           if(!isDynamic){
             // debug << "The loop is not dynamic and nested, Check it has branch or not! \n";
             Loop* loop = *li;
@@ -803,12 +764,10 @@ struct AutoPatchFirstPass : public ModulePass{
           }
           
 
-          //string DemangledFuncName = demangle(CI->getArgOperand(0)->getName().str().c_str()); //It gets error! (I don't know why!)
+          //string DemangledFuncName = demangle(CI->getArgOperand(0)->getName().str().c_str()); 
           
-          //*****We have to work on this
           //Now, I just identify "print" call function and I don't insert code after that. But We have to consider other function calls that
           //We don't need to insert trampoline after them
-          //Also we do not isnert trampoline after function calls that we added as a patch (e.g., CVE 10063) since we run this on the patched function.
           if (DemangledFuncCallName.find("TRAMPOLINE_FUNCTION") == std::string::npos && DemangledFuncCallName.find("dbg")== std::string::npos){  //It means that if the call function is not "print" go to the if
             if(DemangledFuncCallName == "printf"){
               
