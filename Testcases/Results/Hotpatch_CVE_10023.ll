@@ -124,7 +124,7 @@ for.end:                                          ; No predecessors!
 
 !0 = !DILocation(line: 44, column: 9, scope: !1)
 !1 = distinct !DILexicalBlock(scope: !3, file: !2, line: 44, column: 9)
-!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2020-10023(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch")
+!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2020-10023(auto)/patchedFunc.c", directory: "~/AutoPatch")
 !3 = distinct !DILexicalBlock(scope: !4, file: !2, line: 39, column: 38)
 !4 = distinct !DILexicalBlock(scope: !5, file: !2, line: 39, column: 4)
 !5 = distinct !DILexicalBlock(scope: !6, file: !2, line: 39, column: 4)
@@ -139,7 +139,7 @@ for.end:                                          ; No predecessors!
 !14 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !15, size: 64)
 !15 = !DIBasicType(name: "char", size: 8, encoding: DW_ATE_signed_char)
 !16 = distinct !DICompileUnit(language: DW_LANG_C99, file: !17, producer: "clang version 13.0.1 (https://github.com/llvm/llvm-project.git 75e33f71c2dae584b13a7d1186ae0a038ba98838)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !18, retainedTypes: !19, splitDebugInlining: false, nameTableKind: None)
-!17 = !DIFile(filename: "/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2020-10023(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch/Scripts")
+!17 = !DIFile(filename: "~/AutoPatch/Testcases/CVE-Lists/CVE-2020-10023(auto)/patchedFunc.c", directory: "~/AutoPatch/Scripts")
 !18 = !{}
 !19 = !{!20}
 !20 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)

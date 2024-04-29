@@ -72,7 +72,7 @@ return:                                           ; preds = %if_then, %entry1
 
 !0 = !DILocation(line: 17, column: 50, scope: !1)
 !1 = distinct !DISubprogram(name: "prvCheckOptions", scope: !2, file: !2, line: 13, type: !3, scopeLine: 14, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !12, retainedNodes: !14)
-!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2018-16603(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch")
+!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2018-16603(auto)/patchedFunc.c", directory: "~/AutoPatch")
 !3 = !DISubroutineType(types: !4)
 !4 = !{!5, !6}
 !5 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)
@@ -83,7 +83,7 @@ return:                                           ; preds = %if_then, %entry1
 !10 = !DIFile(filename: "/usr/include/x86_64-linux-gnu/bits/types.h", directory: "")
 !11 = !DIBasicType(name: "unsigned int", size: 32, encoding: DW_ATE_unsigned)
 !12 = distinct !DICompileUnit(language: DW_LANG_C99, file: !13, producer: "clang version 13.0.1 (https://github.com/llvm/llvm-project.git 75e33f71c2dae584b13a7d1186ae0a038ba98838)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !14, retainedTypes: !15, splitDebugInlining: false, nameTableKind: None)
-!13 = !DIFile(filename: "/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2018-16603(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch/Scripts")
+!13 = !DIFile(filename: "~/AutoPatch/Testcases/CVE-Lists/CVE-2018-16603(auto)/patchedFunc.c", directory: "~/AutoPatch/Scripts")
 !14 = !{}
 !15 = !{!16, !20, !22}
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !17, size: 64)

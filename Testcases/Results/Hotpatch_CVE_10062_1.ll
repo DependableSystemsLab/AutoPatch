@@ -51,7 +51,7 @@ return:                                           ; preds = %do.body, %if_then
 
 !0 = !DILocation(line: 25, column: 7, scope: !1)
 !1 = distinct !DILexicalBlock(scope: !3, file: !2, line: 25, column: 7)
-!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2020-10062(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch")
+!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2020-10062(auto)/patchedFunc.c", directory: "~/AutoPatch")
 !3 = distinct !DILexicalBlock(scope: !4, file: !2, line: 24, column: 5)
 !4 = distinct !DISubprogram(name: "packet_length_decode", scope: !2, file: !2, line: 18, type: !5, scopeLine: 19, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !20, retainedNodes: !22)
 !5 = !DISubroutineType(types: !6)
@@ -70,7 +70,7 @@ return:                                           ; preds = %do.body, %if_then
 !18 = !DIFile(filename: "/usr/include/x86_64-linux-gnu/bits/types.h", directory: "")
 !19 = !DIBasicType(name: "unsigned int", size: 32, encoding: DW_ATE_unsigned)
 !20 = distinct !DICompileUnit(language: DW_LANG_C99, file: !21, producer: "clang version 13.0.1 (https://github.com/llvm/llvm-project.git 75e33f71c2dae584b13a7d1186ae0a038ba98838)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !22, retainedTypes: !23, splitDebugInlining: false, nameTableKind: None)
-!21 = !DIFile(filename: "/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2020-10062(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch/Scripts")
+!21 = !DIFile(filename: "~/AutoPatch/Testcases/CVE-Lists/CVE-2020-10062(auto)/patchedFunc.c", directory: "~/AutoPatch/Scripts")
 !22 = !{}
 !23 = !{!15}
 !24 = !DILocation(line: 25, column: 13, scope: !1)

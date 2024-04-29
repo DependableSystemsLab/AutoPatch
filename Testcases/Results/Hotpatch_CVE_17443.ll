@@ -68,7 +68,7 @@ return:                                           ; preds = %if_then, %entry1
 
 !0 = !DILocation(line: 11, column: 49, scope: !1)
 !1 = distinct !DISubprogram(name: "pico_icmp6_send_echoreply", scope: !2, file: !2, line: 8, type: !3, scopeLine: 9, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !12, retainedNodes: !14)
-!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2020-17443(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch")
+!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2020-17443(auto)/patchedFunc.c", directory: "~/AutoPatch")
 !3 = !DISubroutineType(types: !4)
 !4 = !{!5, !6}
 !5 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)
@@ -79,7 +79,7 @@ return:                                           ; preds = %if_then, %entry1
 !10 = !DIFile(filename: "/usr/include/x86_64-linux-gnu/bits/types.h", directory: "")
 !11 = !DIBasicType(name: "unsigned char", size: 8, encoding: DW_ATE_unsigned_char)
 !12 = distinct !DICompileUnit(language: DW_LANG_C99, file: !13, producer: "clang version 13.0.1 (https://github.com/llvm/llvm-project.git 75e33f71c2dae584b13a7d1186ae0a038ba98838)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !14, retainedTypes: !15, splitDebugInlining: false, nameTableKind: None)
-!13 = !DIFile(filename: "/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2020-17443(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch/Scripts")
+!13 = !DIFile(filename: "~/AutoPatch/Testcases/CVE-Lists/CVE-2020-17443(auto)/patchedFunc.c", directory: "~/AutoPatch/Scripts")
 !14 = !{}
 !15 = !{!16, !17}
 !16 = !DIDerivedType(tag: DW_TAG_pointer_type, baseType: !17, size: 64)

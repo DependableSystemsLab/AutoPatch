@@ -69,12 +69,12 @@ entry:
 
 !0 = !DILocation(line: 18, column: 37, scope: !1)
 !1 = distinct !DISubprogram(name: "prvSetupConnection", scope: !2, file: !2, line: 14, type: !3, scopeLine: 15, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !6, retainedNodes: !8)
-!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2018-16528_2(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch")
+!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2018-16528_2(auto)/patchedFunc.c", directory: "~/AutoPatch")
 !3 = !DISubroutineType(types: !4)
 !4 = !{!5}
 !5 = !DIBasicType(name: "int", size: 32, encoding: DW_ATE_signed)
 !6 = distinct !DICompileUnit(language: DW_LANG_C99, file: !7, producer: "clang version 13.0.1 (https://github.com/llvm/llvm-project.git 75e33f71c2dae584b13a7d1186ae0a038ba98838)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !8, globals: !9, splitDebugInlining: false, nameTableKind: None)
-!7 = !DIFile(filename: "/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2018-16528_2(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch/Scripts")
+!7 = !DIFile(filename: "~/AutoPatch/Testcases/CVE-Lists/CVE-2018-16528_2(auto)/patchedFunc.c", directory: "~/AutoPatch/Scripts")
 !8 = !{}
 !9 = !{!10}
 !10 = !DIGlobalVariableExpression(var: !11, expr: !DIExpression())

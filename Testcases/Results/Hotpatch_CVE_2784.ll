@@ -48,11 +48,11 @@ return:                                           ; preds = %entry1
 
 !0 = !DILocation(line: 9, column: 13, scope: !1)
 !1 = distinct !DISubprogram(name: "mbedTLS", scope: !2, file: !2, line: 6, type: !3, scopeLine: 7, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !5, retainedNodes: !7)
-!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2017-2784(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch")
+!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2017-2784(auto)/patchedFunc.c", directory: "~/AutoPatch")
 !3 = !DISubroutineType(types: !4)
 !4 = !{null}
 !5 = distinct !DICompileUnit(language: DW_LANG_C99, file: !6, producer: "clang version 13.0.1 (https://github.com/llvm/llvm-project.git 75e33f71c2dae584b13a7d1186ae0a038ba98838)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !7, splitDebugInlining: false, nameTableKind: None)
-!6 = !DIFile(filename: "/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2017-2784(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch/Scripts")
+!6 = !DIFile(filename: "~/AutoPatch/Testcases/CVE-Lists/CVE-2017-2784(auto)/patchedFunc.c", directory: "~/AutoPatch/Scripts")
 !7 = !{}
 !8 = !DILocation(line: 9, column: 22, scope: !1)
 !9 = !DILocation(line: 9, column: 11, scope: !1)

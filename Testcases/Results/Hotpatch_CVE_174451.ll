@@ -93,7 +93,7 @@ return:                                           ; preds = %lor.lhs.false15, %i
 
 !0 = !DILocation(line: 21, column: 33, scope: !1)
 !1 = distinct !DILexicalBlock(scope: !3, file: !2, line: 20, column: 14)
-!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2020-17445(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch")
+!2 = !DIFile(filename: "Testcases/CVE-Lists/CVE-2020-17445(auto)/patchedFunc.c", directory: "~/AutoPatch")
 !3 = distinct !DISubprogram(name: "pico_ipv6_process_destopt", scope: !2, file: !2, line: 11, type: !4, scopeLine: 12, flags: DIFlagPrototyped, spFlags: DISPFlagDefinition, unit: !16, retainedNodes: !18)
 !4 = !DISubroutineType(types: !5)
 !5 = !{!6, !7, !13}
@@ -108,7 +108,7 @@ return:                                           ; preds = %lor.lhs.false15, %i
 !14 = !DIDerivedType(tag: DW_TAG_typedef, name: "__uint32_t", file: !11, line: 42, baseType: !15)
 !15 = !DIBasicType(name: "unsigned int", size: 32, encoding: DW_ATE_unsigned)
 !16 = distinct !DICompileUnit(language: DW_LANG_C99, file: !17, producer: "clang version 13.0.1 (https://github.com/llvm/llvm-project.git 75e33f71c2dae584b13a7d1186ae0a038ba98838)", isOptimized: false, runtimeVersion: 0, emissionKind: FullDebug, enums: !18, retainedTypes: !19, splitDebugInlining: false, nameTableKind: None)
-!17 = !DIFile(filename: "/home/mohsen/AutoPatch/Testcases/CVE-Lists/CVE-2020-17445(auto)/patchedFunc.c", directory: "/home/mohsen/AutoPatch/Scripts")
+!17 = !DIFile(filename: "~/AutoPatch/Testcases/CVE-Lists/CVE-2020-17445(auto)/patchedFunc.c", directory: "~/AutoPatch/Scripts")
 !18 = !{}
 !19 = !{!13, !8}
 !20 = !DILocation(line: 21, column: 40, scope: !1)
