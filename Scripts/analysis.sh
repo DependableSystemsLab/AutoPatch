@@ -66,7 +66,7 @@ else
 fi
 
 read -p "Enter CVE id: " CVEid
-read -p "Enter CVE year: " CVEyear
+#read -p "Enter CVE year: " CVEyear
 
 #Please change this directory if needed.
 HOTPATCH_DIRECTORY=~/AutoPatch/Testcases/Results/Hotpatch_CVE_${CVEid}.ll #Includes CVEs
