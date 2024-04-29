@@ -69,7 +69,7 @@ read -p "Enter CVE id: " CVEid
 read -p "Enter CVE year: " CVEyear
 
 #Please change this directory if needed.
-HOTPATCH_DIRECTORY=~/AutoPatch/Testcases/Results/Hotpatch_CVE_${CVEid}.ll
+HOTPATCH_DIRECTORY=~/AutoPatch/Testcases/Results/Hotpatch_CVE_${CVEid}.ll #Includes CVEs
 
 # Build LLVM with LLVMAutoPatchSecond
 cp $AUTOPATCH_ANALYSIS_REPO/AutoPatchSecondPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchSecondPass/AutoPatchSecondPass.cpp
