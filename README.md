@@ -93,7 +93,7 @@ For generating the hotpatch (a functional equivalent patch that can be generated
 
 ### Adding AutoPatch Worksapce
 
-When you install Zephyr OS on your system according to [this link](https://docs.zephyrproject.org/latest/develop/getting_started/index.html), a new directory will be created (e.g., \~/zephyrproject). You need to copy the [AutoPatch Main project](https://github.com/Moh3nsalehi/AutoPatchCode/tree/main/AutoPatch) to this directory: **~/zephyrproject/samples/**. 
+When you install Zephyr OS on your system according to [this link](https://docs.zephyrproject.org/latest/develop/getting_started/index.html), a new directory will be created (e.g., \~/zephyrproject). You need to copy the [AutoPatch Main](https://github.com/Moh3nsalehi/AutoPatchCode/tree/main/AutoPatch) project to this directory: **~/zephyrproject/samples/**. 
 
 
 
