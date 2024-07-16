@@ -1,0 +1,51 @@
+{
+	"folders": [
+		{
+			"name": "test4",
+			"path": "."
+		}
+	],
+	"settings": {
+		"nrf-connect.applications": [
+			"${workspaceFolder}"
+		],
+		"files.associations": {
+			"byteorder.h": "c",
+			"fixed_patch_point_def.h": "c",
+			"iotpatch.h": "c",
+			"hashmap.h": "c",
+			"zephyr.h": "c",
+			"ebpf_allocator.h": "c",
+			"ebpf_porting.h": "c",
+			"cstdio": "c",
+			"*.tcc": "c",
+			"cstdlib": "c",
+			"system_error": "c",
+			"typeinfo": "c",
+			"stdlib.h": "c",
+			"stddef.h": "c",
+			"stdio.h": "c",
+			"random": "c",
+			"utils.h": "c",
+			"patch_point.h": "c",
+			"ebpf.h": "c",
+			"ebpf_test.h": "c",
+			"jit.h": "c",
+			"jit_thumb2.h": "c",
+			"ebpf_vm.h": "c",
+			"ebpf_inst.h": "c",
+			"ebpf_types.h": "c",
+			"stdint.h": "c",
+			"usb_msc.h": "c",
+			"usb_device.h": "c",
+			"profiling.h": "c",
+			"fixed_patch_points.h": "c",
+			"string.h": "c",
+			"hotpatch.h": "c",
+			"compare": "c",
+			"type_traits": "c"
+		},
+		"nrf-connect.topdir": "${nrf-connect.sdk:2.3.0}",
+		"nrf-connect.toolchain.path": "${nrf-connect.toolchain:2.3.0}"
+	}
+}

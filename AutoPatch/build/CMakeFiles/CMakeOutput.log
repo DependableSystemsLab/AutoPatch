@@ -1,0 +1,395 @@
+The target system is: Generic - 3.2.99 - arm
+The host system is: Linux - 5.19.0-35-generic - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /home/mohsen/ncs/toolchains/v2.3.0/opt/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc 
+Build flags: 
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+
+The C compiler identification is GNU, found in "/home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/3.20.5/CompilerIdC/CMakeCCompilerId.o"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /home/mohsen/ncs/toolchains/v2.3.0/opt/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-g++ 
+Build flags: 
+Id flags: -c 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+
+The CXX compiler identification is GNU, found in "/home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/3.20.5/CompilerIdCXX/CMakeCXXCompilerId.o"
+
+Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+arm-zephyr-eabi-gcc (Zephyr SDK 0.15.2) 12.1.0
+Copyright (C) 2022 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_b8954 && [1/2] Building C object CMakeFiles/cmTC_b8954.dir/src.c.obj
+[2/2] Linking C executable cmTC_b8954
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0_ succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_9096c && [1/2] Building C object CMakeFiles/cmTC_9096c.dir/src.c.obj
+[2/2] Linking C executable cmTC_9096c
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wall_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_0c50d && [1/2] Building C object CMakeFiles/cmTC_0c50d.dir/src.c.obj
+[2/2] Linking C executable cmTC_0c50d
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wformat__Wformat_security_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_18b2d && [1/2] Building C object CMakeFiles/cmTC_18b2d.dir/src.c.obj
+[2/2] Linking C executable cmTC_18b2d
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wformat__Wformat_zero_length_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_616be && [1/2] Building C object CMakeFiles/cmTC_616be.dir/src.c.obj
+[2/2] Linking C executable cmTC_616be
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wmain_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_ad1ae && [1/2] Building C object CMakeFiles/cmTC_ad1ae.dir/src.c.obj
+[2/2] Linking C executable cmTC_ad1ae
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wpointer_sign_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_a515a && [1/2] Building C object CMakeFiles/cmTC_a515a.dir/src.c.obj
+[2/2] Linking C executable cmTC_a515a
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wpointer_arith_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_3f92d && [1/2] Building C object CMakeFiles/cmTC_3f92d.dir/src.c.obj
+[2/2] Linking C executable cmTC_3f92d
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wexpansion_to_defined_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_62272 && [1/2] Building C object CMakeFiles/cmTC_62272.dir/src.c.obj
+[2/2] Linking C executable cmTC_62272
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wlogical_op_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_73f0d && [1/2] Building C object CMakeFiles/cmTC_73f0d.dir/src.c.obj
+[2/2] Linking C executable cmTC_73f0d
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wmissing_field_initializers_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_dadbe && [1/2] Building C object CMakeFiles/cmTC_dadbe.dir/src.c.obj
+[2/2] Linking C executable cmTC_dadbe
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wpacked_bitfield_compat_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_7090c && [1/2] Building C object CMakeFiles/cmTC_7090c.dir/src.c.obj
+[2/2] Linking C executable cmTC_7090c
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wvla_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_bc57f && [1/2] Building C object CMakeFiles/cmTC_bc57f.dir/src.c.obj
+[2/2] Linking C executable cmTC_bc57f
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Wunused_but_set_variable_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_d894c && [1/2] Building C object CMakeFiles/cmTC_d894c.dir/src.c.obj
+[2/2] Linking C executable cmTC_d894c
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_Werror_implicit_int_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_75afa && [1/2] Building C object CMakeFiles/cmTC_75afa.dir/src.c.obj
+[2/2] Linking C executable cmTC_75afa
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_mstack_protector_guard_global_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_d2694 && [1/2] Building C object CMakeFiles/cmTC_d2694.dir/src.c.obj
+[2/2] Linking C executable cmTC_d2694
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_freestanding_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_bee1a && [1/2] Building C object CMakeFiles/cmTC_bee1a.dir/src.c.obj
+[2/2] Linking C executable cmTC_bee1a
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_ffreestanding_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_39c5a && [1/2] Building C object CMakeFiles/cmTC_39c5a.dir/src.c.obj
+[2/2] Linking C executable cmTC_39c5a
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_gdwarf_4_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_b6034 && [1/2] Building C object CMakeFiles/cmTC_b6034.dir/src.c.obj
+[2/2] Linking C executable cmTC_b6034
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__Wl___print_memory_usage succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_5a071 && [1/2] Building C object CMakeFiles/cmTC_5a071.dir/src.c.obj
+[2/2] Linking C executable cmTC_5a071
+Memory region         Used Size  Region Size  %age Used
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__pg succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_a92d2 && [1/2] Building C object CMakeFiles/cmTC_a92d2.dir/src.c.obj
+[2/2] Linking C executable cmTC_a92d2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__no_pie__mcpu_cortex_m4__mthumb__mabi_aapcs__mfp16_format_ieee succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_e4f88 && [1/2] Building C object CMakeFiles/cmTC_e4f88.dir/src.c.obj
+[2/2] Linking C executable cmTC_e4f88
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__Wl___gc_sections succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_8e4ad && [1/2] Building C object CMakeFiles/cmTC_8e4ad.dir/src.c.obj
+[2/2] Linking C executable cmTC_8e4ad
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__Wl___build_id_none succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_4e21d && [1/2] Building C object CMakeFiles/cmTC_4e21d.dir/src.c.obj
+[2/2] Linking C executable cmTC_4e21d
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__Wl___sort_common_descending succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_e3146 && [1/2] Building C object CMakeFiles/cmTC_e3146.dir/src.c.obj
+[2/2] Linking C executable cmTC_e3146
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__Wl___sort_section_alignment succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_b7ebb && [1/2] Building C object CMakeFiles/cmTC_b7ebb.dir/src.c.obj
+[2/2] Linking C executable cmTC_b7ebb
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__nostdlib succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_51c2e && [1/2] Building C object CMakeFiles/cmTC_51c2e.dir/src.c.obj
+[2/2] Linking C executable cmTC_51c2e
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__static succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_bda9d && [1/2] Building C object CMakeFiles/cmTC_bda9d.dir/src.c.obj
+[2/2] Linking C executable cmTC_bda9d
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__Wl__X succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_2b0cf && [1/2] Building C object CMakeFiles/cmTC_2b0cf.dir/src.c.obj
+[2/2] Linking C executable cmTC_2b0cf
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__Wl__N succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_6b889 && [1/2] Building C object CMakeFiles/cmTC_6b889.dir/src.c.obj
+[2/2] Linking C executable cmTC_6b889
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0__Wl___orphan_handling_warn succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_2459a && [1/2] Building C object CMakeFiles/cmTC_2459a.dir/src.c.obj
+[2/2] Linking C executable cmTC_2459a
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_asynchronous_unwind_tables_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_b3d27 && [1/2] Building C object CMakeFiles/cmTC_b3d27.dir/src.c.obj
+[2/2] Linking C executable cmTC_b3d27
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_reorder_functions_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_c0aba && [1/2] Building C object CMakeFiles/cmTC_c0aba.dir/src.c.obj
+[2/2] Linking C executable cmTC_c0aba
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check__param_min_pagesize_0_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_30486 && [1/2] Building C object CMakeFiles/cmTC_30486.dir/src.c.obj
+[2/2] Linking C executable cmTC_30486
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fno_defer_pop_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_26cae && [1/2] Building C object CMakeFiles/cmTC_26cae.dir/src.c.obj
+[2/2] Linking C executable cmTC_26cae
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fmacro_prefix_map__home_mohsen_zephyr_main_samples_test4_CMAKE_SOURCE_DIR_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_0d3a6 && [1/2] Building C object CMakeFiles/cmTC_0d3a6.dir/src.c.obj
+[2/2] Linking C executable cmTC_0d3a6
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fmacro_prefix_map__home_mohsen_ncs_v2_3_0_zephyr_ZEPHYR_BASE_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_22cec && [1/2] Building C object CMakeFiles/cmTC_22cec.dir/src.c.obj
+[2/2] Linking C executable cmTC_22cec
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fmacro_prefix_map__home_mohsen_ncs_v2_3_0_WEST_TOPDIR_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_38934 && [1/2] Building C object CMakeFiles/cmTC_38934.dir/src.c.obj
+[2/2] Linking C executable cmTC_38934
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_ffunction_sections_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_8614c && [1/2] Building C object CMakeFiles/cmTC_8614c.dir/src.c.obj
+[2/2] Linking C executable cmTC_8614c
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test check_fdata_sections_C__nostartfiles__nostdlib__isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include___isystem___home_mohsen_ncs_toolchains_v2_3_0_opt_zephyr_sdk_arm_zephyr_eabi_bin____lib_gcc_arm_zephyr_eabi_12_1_0_include_fixed___Wl___unresolved_symbols_ignore_in_object_files__Wl___entry_0 succeeded with the following output:
+Change Dir: /home/mohsen/zephyr-main/samples/test4/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/home/mohsen/ncs/toolchains/v2.3.0/usr/local/bin/ninja cmTC_57228 && [1/2] Building C object CMakeFiles/cmTC_57228.dir/src.c.obj
+[2/2] Linking C executable cmTC_57228
+
+
+Source file was:
+int main(void) { return 0; }

@@ -1,0 +1,16 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:199 (message)"
+      - "/home/mohsen/ncs/v2.3.0/zephyr/cmake/modules/kernel.cmake:127 (project)"
+      - "/home/mohsen/ncs/v2.3.0/zephyr/cmake/modules/zephyr_default.cmake:117 (include)"
+      - "/home/mohsen/ncs/v2.3.0/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:66 (include)"
+      - "/home/mohsen/ncs/v2.3.0/zephyr/share/zephyr-package/cmake/ZephyrConfig.cmake:97 (include_boilerplate)"
+      - "CMakeLists.txt:5 (find_package)"
+    message: |
+      The target system is: Generic - 3.2.99 - arm
+      The host system is: Linux - 6.2.0-36-generic - x86_64
+...
