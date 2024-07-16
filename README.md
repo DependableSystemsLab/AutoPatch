@@ -9,6 +9,8 @@ Note that although **AutoPatch** has been tested on different RTOSes and boards,
 
 #### The structure of the artifact is as follows:
 ```
+AutoPatch    <--- Main Project
+
 LLVM Passes
 |
 └─── AutoPatchFirstPass    <--- Instrumentation Pass
@@ -91,7 +93,7 @@ For generating the hotpatch (a functional equivalent patch that can be generated
 
 ### Adding AutoPatch Worksapce
 
-When you install Zephyr OS on your system according to [this link](https://docs.zephyrproject.org/latest/develop/getting_started/index.html), a new directory will be created (e.g., \~/zephyrproject). You need to copy the [AutoPatch project]() to this directory: **~/zephyrproject/samples/autopatch**. 
+When you install Zephyr OS on your system according to [this link](https://docs.zephyrproject.org/latest/develop/getting_started/index.html), a new directory will be created (e.g., \~/zephyrproject). You need to copy the [AutoPatch project](https://github.com/Moh3nsalehi/AutoPatchCode/tree/main/AutoPatch) to this directory: **~/zephyrproject/samples/autopatch**. 
 
 
 
