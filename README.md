@@ -84,7 +84,6 @@ Before running the scripts, make sure to:
 - Change the file path constants within the shell scripts to match the local file structure.
 - Set **LLVM_BUILD_DIR**.
 - Choose a test C file from the example CVEs in [`Testcases`](Testcases).
-- Change the file names, function names, patch type, and line numbers in the `instrument.sh` and `analysis.sh` file to match the C file.
 
 Run `instrument.sh` by passing the chosen C file to it, and then answer the questions in Terminal (e.g., line numbers of official patch). Note that if you use our testcases, you should answer **true** to the **Is it patched?**. Then, It will generate a `.bc` file, which contains the instrumented llvm IR (i.e., trampolines in different locations of function). 
 
