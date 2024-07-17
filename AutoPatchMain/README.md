@@ -6,5 +6,7 @@ This is the main project of AutoPatch that is used in Zephyr OS for evaluating t
 
 
 CMakeLists.txt
+
 src/main.c
+
 src/LocalPatches/
