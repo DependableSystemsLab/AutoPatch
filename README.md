@@ -98,6 +98,14 @@ When you install Zephyr OS on your system according to [this link](https://docs.
 
 ### Flash and Execute
 
+To run the generated hotpatch on the board running Zephyr OS you need to do the following steps:
+
+- Add hotpatch object file to AutoPatchMain source code folder (e.g., src/LocalPatches/).
+- Change CMakeLists.txt (e.g., \~/zephyrproject/zephyr/samples/AutoPatchMain/) to add the hotpatch information.
+  - add_library(myac_obj OBJECT `hotpatch directory in AutoPatchMain folder`)
+  - target_sources(app PRIVATE `hotpatch directory in AutoPatchMain folder`)
+-  
+
 Flash the `.o` file onto the Nordic board and execute it.
 Forward the serial port into VSCode to see printed messages in the terminal and verify correctness.
 
