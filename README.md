@@ -9,7 +9,7 @@ Note that although **AutoPatch** has been tested on different RTOSes and boards,
 
 #### The structure of the artifact is as follows:
 ```
-AutoPatch Main    <--- Main Project
+AutoPatchMain    <--- Main Project
 
 LLVM Passes
 |
