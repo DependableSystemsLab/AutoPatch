@@ -6,6 +6,12 @@ This is the main project of AutoPatch that is used in Zephyr OS for evaluating t
 
 This project consists of various files, but you only need its three main files, which include `CMakeLists.txt`, `src/main.c`, and `src/LocalPatches/`.
 
+- CMakeLists.txt
+
+- src/main.c
+
+- src/LocalPatches
+
 
 
 
