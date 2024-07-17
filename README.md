@@ -30,7 +30,7 @@ Testcases
 │   │   Results
 ```    
 
-## How To Run AutoPatch
+## How To Run AutoPatch on a Board
 
 ### Configure the working directory
 
