@@ -33,7 +33,7 @@ sudo ninja install
     `llvm-project/llvm/include/llvm/IR/BasicBlock.h`  
     `llvm-project/llvm/include/llvm/IR/IRBuilder.h`  
     `llvm-project/llvm/lib/IR/BasicBlock.cpp`  
-  with the versions found in the [`LLVM Modifications`](../LLVM%20Modifications) directory of this repository.
+  with the versions found in the [**LLVM Modifications**](../LLVM%20Modifications) directory of this repository.
 
 
 
