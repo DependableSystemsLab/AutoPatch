@@ -21,13 +21,13 @@ void test_c2();
 int main() {
     printf("Hello, Welcome to AutoPatch!\n");
     
-    test_c2(); //CVE-2020-10021
+    test_cve(); //CVE-2020-10021
     
     return 0;
 }
 
 
-void test_c2() {
+void test_cve() {
 	/*
 	zephyr_cve_2020_10021
 	*/
