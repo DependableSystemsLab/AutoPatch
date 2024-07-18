@@ -52,7 +52,7 @@ fi
 "${LLVM_CLANG}" -O0 -g -S -emit-llvm -o "${LL_FILE}" -c "${SRC_FILE}"
 
 # Build LLVM with LLVMAutoPatchFirst
-# cp $AUTOPATCH_INSTRUMENT_REPO/AutoPatchFirstPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchFirstPass/AutoPatchFirstPass.cpp
+cp $AUTOPATCH_INSTRUMENT_REPO/AutoPatchFirstPass.cpp $LLVM_PASS_SRC_FOLDER/AutoPatchFirstPass/AutoPatchFirstPass.cpp
 cd "${LLVM_BUILD_DIR}"
 ninja
 
