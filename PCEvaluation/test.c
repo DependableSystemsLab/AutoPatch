@@ -16,7 +16,7 @@ typedef struct stack_frame {
 	uint32_t xpsr;
 } __attribute__((__packed__)) stack_frame;
 
-void test_c2(); 
+void test_cve(); 
 
 int main() {
     printf("Hello, Welcome to AutoPatch!\n");
