@@ -942,17 +942,9 @@ void main(){
 	// test_c35(); //CVE-2020-13600
 	// test_c36(); //CVE-2019_16748
 
+	////*** End of execution time evaluation ***////
 
-
-
-
-
-
-
-
-
-
-
+	
 	// test_ebpf_c1();
 	// test_ebpf_c2();
 	// test_ebpf_c3();
@@ -995,27 +987,9 @@ void main(){
 	// profile_end(EV0);
 	// profile_dump(EV0);
 
-
-
-
-	// profile_add_event("EV0");
-	// profile_start(EV0);
-	//blinksample();
-	// printstr();
-	// profile_end(EV0);
-	// profile_dump(EV0);
-
-
-
-
-
-
-	// create_patch_desc_new(1);
-	// create_patch_desc_new(2);
-
-
-// 	int num_patches = get_num_patches();
-// 	printf("Number of patches stored before: %d\n", num_patches);
+	
+ 	// int num_patches = get_num_patches();
+ 	// printf("Number of patches stored before: %d\n", num_patches);
 	// load_local_fixed_patch(0);
 	// call_dummy_buggy_MQTT_function();
 
@@ -1127,14 +1101,14 @@ void main(){
 	// hashmap_insert(map, 0x00001920, filter);
 	// hashmap_insert(map, 0x00001925, filter);
 
-    // // ... (add more entries here)
+        // ... (add more entries here)
 
-    // // Get the patch function from the hashmap based on the address
-    // struct stack_frame st_frame;
-    // // Initialize the stack frame
-    // // ... (set values for the stack frame members)
+   	// Get the patch function from the hashmap based on the address
+    	// struct stack_frame st_frame;
+    	// Initialize the stack frame
+        // ... (set values for the stack frame members)
 
-    // uint32_t address = 0x00001921; // Example address
+   	// uint32_t address = 0x00001921; // Example address
 
 	// size_t hash = hash_function(address); // Compute hash value
 
@@ -1146,11 +1120,11 @@ void main(){
 	// profile_end(EV1);
 	// profile_dump(EV1);
 
-    // if (patch_func != NULL) {
-    //     // Call the patch function with the stack frame
-	// 	printf("The patch is Found! \n");
-    //     patch_func(&st_frame);
-    // }else{
+    	// if (patch_func != NULL) {
+     		// Call the patch function with the stack frame
+		// printf("The patch is Found! \n");
+   		// patch_func(&st_frame);
+    	// }else{
 	// 	printf("The patch is not Found! \n");
 	// }
 }
@@ -1159,7 +1133,7 @@ void test_c1() {
 	/*
 	zephyr_cve_2020_10063
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
 	unsigned char testcase[] = {
 		0, 0, 0, 0,
 		0x0E, /* delta=0, length=14 */ // COAP_OPTION_EXT_14 = 14
@@ -1187,13 +1161,12 @@ void test_c1() {
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_10063(&sf);
+		ret1 = filter_10063(&sf);
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1207,7 +1180,7 @@ void test_c5() {
 	/*
 	zephyr_cve_2020_10062
 	*/
-	// printf("Hello, Start!\n");
+	// printf("Start the evaluation process!\n");
 	
 	stack_frame sf;
 	sf.r0 = 1;
@@ -1251,7 +1224,7 @@ void test_c5() {
 	
 	
 	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	
 	// profile_add_event("EV1");
@@ -1266,7 +1239,7 @@ void test_c2() {
 	/*
 	zephyr_cve_2020_10021
 	*/
-	//printf("Hello, Start!\n");
+	// printf("Start the evaluation process!\n");
 	
 	stack_frame sf;
 	sf.r0 = 10; // n
@@ -1283,7 +1256,7 @@ void test_c2() {
 	
 	
 	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// uint32_t testcase = 268435456; //Malicious input
 	// // uint32_t testcase = 1; //Normal input
@@ -1301,7 +1274,8 @@ void test_c3() {
 	zephyr_cve_2020_10024
 	*/
 	
-	// printf("Hello, Start!\n");
+	// printf("Start the evaluation process!\n");
+	
 	stack_frame sf;
 	// sf.pc = 5;
 	// sf.xpsr = 7;
@@ -1312,10 +1286,11 @@ void test_c3() {
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_10024(&sf);
+		ret1 = filter_10024(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1331,8 +1306,8 @@ void test_c4(){
 	/*
 	zephyr_cve_2020_10028
 	*/
-	//Didn't work! It didn't go into the if! But it is exactly the same! 
-	//Possible Solution: I changed gpio_enable_callback_ptr to with pointer in if condition. It goes to the "if" but I cannot change the values!
+
+	// printf("Start the evaluation process!\n");
 
 	static struct gpio_struct2 {
 		int a;
@@ -1375,16 +1350,12 @@ void test_c4(){
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_10028(&sf);
+		ret1 = filter_10028(&sf);
 		total += profile_end(EV0);
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
-
-
-
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1400,7 +1371,9 @@ void test_c6() {
 	freertos_cve_2018_16524
 	*/
 	
-	// printf("Hello, Start!\n");
+	// printf("Start the evaluation process!\n");
+
+	
 	uint64_t ret1 = 0;
 	uint8_t pxLength = 10;
 
@@ -1443,7 +1416,7 @@ void test_c6() {
 	
 	
 	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 
 
@@ -1453,18 +1426,16 @@ void test_c6() {
 	// profile_end(EV0);
 	// profile_dump(EV0);
 	// printf("Hello, End!\n");
-
-
 }
 
 void test_c7() {
 	/*
 	freertos_2018_16528
 	*/
-	// printf("Hello, Start!\n");
-	uint64_t ret1 = 0;
-
 	
+	// printf("Start the evaluation process!\n");
+	
+	uint64_t ret1 = 0;
 	stack_frame sf = {
 		.r0 = 15,
 		.r1 = 2
@@ -1475,14 +1446,12 @@ void test_c7() {
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_16528_1(&sf);
+		ret1 = filter_16528_1(&sf);
 		ret1 = filter_16528_2(&sf);
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1499,9 +1468,9 @@ void test_c8() {
 	/*
 	freertos_cve_2018_16603
 	*/
-	// printf("Hello, Start!\n");
+	// printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	static struct ETHPacket {
 		unsigned char padd[28];
 		uint64_t xDataLength;
@@ -1522,13 +1491,11 @@ void test_c8() {
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_16603(&sf);
+		ret1 = filter_16603(&sf);
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1542,10 +1509,10 @@ void test_c9() {
 	/*
 	mbedTLS_cve_2017_2784
 	*/
-	// printf("Hello, Start!\n");
-	uint64_t ret1 = 0;
-
 	
+	// printf("Start the evaluation process!\n");
+
+	uint64_t ret1 = 0;
 	stack_frame sf = {
 		.pc = 2020
 	};
@@ -1555,14 +1522,12 @@ void test_c9() {
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_2784(&sf);
+		ret1 = filter_2784(&sf);
 		total += profile_end(EV0);
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
-
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1577,9 +1542,10 @@ void test_c10() {
 	/*
 	AMNESIA33_cve_2020_17443
 	*/
-	// printf("Hello, Start!\n");
-	uint64_t ret1 = 0;
+	
+	// printf("Start the evaluation process!\n");
 
+	uint64_t ret1 = 0;
 	static struct PicoFrame {
 		unsigned char padd[38];
 		uint16_t transport_len;
@@ -1603,9 +1569,7 @@ void test_c10() {
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 
 	// profile_add_event("EV0");
@@ -1614,17 +1578,16 @@ void test_c10() {
 	// profile_end(EV0);
 	// profile_dump(EV0);
 	// printf("Hello, End!\n");
-
-
 }
 
 void test_c11() {
 	/*
 	AMNESIA33_cve_2020_17445
 	*/
-	// printf("Hello, Start!\n");
-	uint64_t ret1 = 0;
+	
+	// printf("Start the evaluation process!\n");
 
+	uint64_t ret1 = 0;
 	uint32_t opt_ptr = 2;
 	uint8_t destopt[50] = {1, -2, -2, -2, -2, -2}; //You should change the optlen value which is the fourth element (e.g., {1, -2, -2, 1, -2, -2})
 	uint8_t len = 10;
@@ -1643,13 +1606,11 @@ void test_c11() {
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_17445(&sf);
+		ret1 = filter_17445(&sf);
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 
 	// profile_add_event("EV0");
@@ -1665,9 +1626,11 @@ void test_c12() {
 	/*
 	zephyr_cve_2020_10023
 	*/
-	// printf("Hello, Start!\n");
-	uint64_t ret1 = 0;
+	
+	// printf("Start the evaluation process!\n");
 
+	
+	uint64_t ret1 = 0;
 	char *test_str = "test\n";
 	uint16_t len = 5;
 	uint16_t shift = 0;
@@ -1692,8 +1655,9 @@ void test_c12() {
 		ret1 = filter_10023(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
 
+	
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1704,18 +1668,17 @@ void test_c12() {
 
 
 }
-/////////////////////NEW CVEs////////////////////////////////
 
-
+/////////////////////*NEW CVEs*////////////////////////////////
 void test_c13() {
 	/*
 	freertos_cve_2018_16522
 	*/
 	
-	printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
 	uint8_t pxLength = 10;
-
 	static struct IPPacket {
 		unsigned char padd[24];
 		unsigned char *tcpptr;
@@ -1749,34 +1712,20 @@ void test_c13() {
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_16522(&sf);
+		ret1 = filter_16522(&sf);
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
-
-
-
-
-
-	// profile_add_event("EV0");
-	// profile_start(EV0);
-	// ret1 = filter_16524(&sf);
-	// profile_end(EV0);
-	// profile_dump(EV0);
-	// printf("Hello, End!\n");
-
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c14() {
 	/*
-	AMNESIA33_cve_2018_16526
+	freertos_cve_2018_16526
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	static struct PicoFrame {
 		unsigned char padd[38];
 		uint8_t versionHeader_len;
@@ -1789,30 +1738,27 @@ void test_c14() {
 		.r0 = &pf,
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_16526(&sf);
+		ret1 = filter_16526(&sf);
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
-
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 
 void test_c15() {
 	/*
-	AMNESIA33_cve_2018_16525
+	freertos_cve_2018_16525
 	*/
-	// printf("Hello, Start!\n");
+	
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	static struct PacketInfo {
 		unsigned char padd[38];
 		uint8_t versionHeader_len;
@@ -1836,29 +1782,27 @@ void test_c15() {
 		.r1 = &nb
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_16525(&sf);
+		ret1 = filter_16525(&sf);
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c16() {
 	/*
-	AMNESIA33_cve_2018_16599
+	freertos_cve_2018_16599
 	*/
-	// printf("Hello, Start!\n");
+	
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	static struct NetworkBuffer {
 		unsigned char padd[24];
 		uint8_t DataLength;
@@ -1873,20 +1817,17 @@ void test_c16() {
 		.r0 = &nb
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
-
 	uint32_t total = 0;
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_16599(&sf);
+		ret1 = filter_16599(&sf);
 		total += profile_end(EV0);
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 
@@ -1895,10 +1836,10 @@ void test_c17() {
 	freertos_cve_2018_16523
 	*/
 	
-	printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
 	uint8_t pxLength = 10;
-
 	static struct TCPHeader {
 		unsigned char padd[24];
 		unsigned char *tcpptr;
@@ -1918,9 +1859,7 @@ void test_c17() {
 	};
 
 	stack_frame sf = {
-		//.r0 = &pxLength, //When it has "printf", you should store into r1 for pxNBDL
 		.r0 = &ippkt,
-		// .r2 = &pxLength, //When it doesn't have "printf", you should store into r2 for pxNBDL
 	};
 
 	// printf("Hello %p %p %p %p\n", &ippkt , &(ippkt.tcpptr) , *(ippkt.tcpptr), &(ippkt.xDataLength));
@@ -1930,23 +1869,23 @@ void test_c17() {
 	for (int i = 0; i < 1000; i++)
 	{
 		profile_start(EV0);
-		// ret1 = filter_16523(&sf);
+		ret1 = filter_16523(&sf);
 		total += profile_end(EV0);
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 
 void test_c18() {
 	/*
-	zephyr_cve_2018_16602
+	freertos_cve_2018_16602
 	*/
-	// printf("Hello, Start!\n");
+	
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	uint8_t LastByte = 5;
 	uint8_t Byte = 0;
 	
@@ -1956,8 +1895,6 @@ void test_c18() {
 		.r1 = Byte,
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
-
 	uint32_t total = 0;
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
@@ -1966,15 +1903,15 @@ void test_c18() {
 		ret1 = filter_16602(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c19() {
 	/*
-	AMNESIA33_cve_2018_16600
+	freertos_cve_2018_16600
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	static struct NetworkBuffer {
 		unsigned char padd[24];
 		uint8_t DataLength;
@@ -1988,8 +1925,6 @@ void test_c19() {
 	stack_frame sf = {
 		.r0 = &nb
 	};
-
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2001,17 +1936,16 @@ void test_c19() {
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c20() {
 	/*
-	AMNESIA33_cve_2018_16527
+	freertos_cve_2018_16527
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	static struct NetworkBuffer {
 		unsigned char padd[24];
 		uint8_t DataLength;
@@ -2026,7 +1960,6 @@ void test_c20() {
 		.r0 = &nb
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2037,19 +1970,16 @@ void test_c20() {
 		total += profile_end(EV0);
 	}
 	
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
-
 }
 void test_c21() {
 	/*
-	mbedTLS_cve_2018_16598
+	freertos_cve_2018_16598
 	*/
-	// printf("Hello, Start!\n");
-	uint64_t ret1 = 0;
-
+	printf("Start the evaluation process!\n");
 	
+	uint64_t ret1 = 0;
 	stack_frame sf = {
 		.pc = 2020
 	};
@@ -2064,17 +1994,16 @@ void test_c21() {
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c22() {
 	/*
 	AMNESIA33_cve_2017_14199
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	static struct UserData {
 		unsigned char padd[24];
 		uint8_t idx;
@@ -2089,7 +2018,6 @@ void test_c22() {
 		.r0 = &ud
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2100,26 +2028,21 @@ void test_c22() {
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c23() {
 	/*
 	zephyr_cve_2020_10019
 	*/
-	// printf("Hello, Start!\n");
-	uint64_t ret1 = 0;
-
-	uint32_t len = 10;
 	
-
+	printf("Start the evaluation process!\n");
+	
+	uint64_t ret1 = 0;
+	uint32_t len = 10;
 	stack_frame sf = {
 		.r0 = len,
 	};
-
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2129,16 +2052,15 @@ void test_c23() {
 		ret1 = filter_10019(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c24() {
 	/*
-	freertos_cve_2020_10060
+	zephyros_cve_2020_10060
 	*/
+	printf("Start the evaluation process!\n");
 	
-	// printf("Hello, Start!\n");
 	uint64_t ret1 = 0;
-
 	static struct IPPacket {
 		unsigned char padd[24];
 		unsigned char *tcpptr;
@@ -2160,12 +2082,8 @@ void test_c24() {
 	};
 
 	stack_frame sf = {
-		//.r0 = &pxLength, //When it has "printf", you should store into r1 for pxNBDL
 		.r0 = &ippkt,
-		// .r2 = &pxLength, //When it doesn't have "printf", you should store into r2 for pxNBDL
 	};
-
-	// printf("Hello %p %p %p %p\n", &ippkt , &(ippkt.tcpptr) , *(ippkt.tcpptr), &(ippkt.xDataLength));
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2177,17 +2095,16 @@ void test_c24() {
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c25() {
 	/*
-	zephyr_cve_2020_10061
+	zephyros_cve_2020_10061
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	uint8_t packet_head_offset = 10;
 	uint8_t packet_head_len = 10;
 	uint8_t pdu_data_len = 10;
@@ -2199,7 +2116,6 @@ void test_c25() {
 		.r3 = pdu_data_len,
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2209,16 +2125,15 @@ void test_c25() {
 		ret1 = filter_10061(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c26() {
 	/*
-	freertos_cve_2020_10066
+	zephyros_cve_2020_10066
 	*/
+	printf("Start the evaluation process!\n");
 	
-	// printf("Hello, Start!\n");
 	uint64_t ret1 = 0;
-
 	static struct NetworkBuffer {
 		unsigned char padd[24];
 		uint8_t ref;
@@ -2244,12 +2159,9 @@ void test_c26() {
 	};
 
 	stack_frame sf = {
-		//.r0 = &pxLength, //When it has "printf", you should store into r1 for pxNBDL
 		.r0 = &ippkt,
-		// .r2 = &pxLength, //When it doesn't have "printf", you should store into r2 for pxNBDL
 	};
 
-	// printf("Hello %p %p %p %p\n", &ippkt , &(ippkt.tcpptr) , *(ippkt.tcpptr), &(ippkt.xDataLength));
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2261,17 +2173,15 @@ void test_c26() {
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
-
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c27() {
 	/*
-	zephyr_cve_2020_10067
+	zephyros_cve_2020_10067
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	uint32_t Start = 5;
 	uint32_t Size = 0;
 	uint32_t *End = 0;
@@ -2282,7 +2192,6 @@ void test_c27() {
 		.r2 = End,
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2292,23 +2201,20 @@ void test_c27() {
 		ret1 = filter_10067(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c28() {
 	/*
 	zephyr_cve_2020_10069
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	uint8_t data_chan_count = 10;
-
-
 	stack_frame sf = {
 		.r0 = data_chan_count,
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2318,17 +2224,16 @@ void test_c28() {
 		ret1 = filter_10069(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c29() {
 	/*
-	freertos_cve_2020_10070
+	zephyros_cve_2020_10070
 	*/
+	printf("Start the evaluation process!\n");
 	
-	// printf("Hello, Start!\n");
 	uint64_t ret1 = 0;
 	uint32_t length = 2;
-
 	static struct buf_ctx {
 		unsigned char *curptr;
 		unsigned char *endptr;
@@ -2360,7 +2265,6 @@ void test_c29() {
 		.r1 = length
 	};
 
-	// printf("Hello %p %p %p %p\n", &ippkt , &(ippkt.tcpptr) , *(ippkt.tcpptr), &(ippkt.xDataLength));
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2371,9 +2275,7 @@ void test_c29() {
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 
@@ -2381,9 +2283,9 @@ void test_c30() {
 	/*
 	zephyr_cve_2020_10071
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	uint32_t varLength = 5;
 	uint32_t varHeaderLength = 0;
 	
@@ -2392,7 +2294,6 @@ void test_c30() {
 		.r0 = varLength,
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2402,15 +2303,15 @@ void test_c30() {
 		ret1 = filter_10071(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c31() {
 	/*
 	zephyr_cve_2020_13602
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	uint8_t type = 2;
 	
 
@@ -2418,7 +2319,6 @@ void test_c31() {
 		.r0 = type,
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2428,23 +2328,20 @@ void test_c31() {
 		ret1 = filter_13602(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c32() {
 	/*
 	wolfssl_cve_2021_3336
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	uint8_t ret = 0;
 	
-
 	stack_frame sf = {
 		.r0 = ret,
 	};
-
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2454,25 +2351,21 @@ void test_c32() {
 		ret1 = filter_3336(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 void test_c33() {
 	/*
-	freertos_cve_2020_24338
+	picotcp_cve_2020_24338
 	*/
+	printf("Start the evaluation process!\n");
 	
-	// printf("Hello, Start!\n");
 	uint64_t ret1 = 0;
 	uint8_t *iterator;
-
 	
 	stack_frame sf = {
-		//.r0 = &pxLength, //When it has "printf", you should store into r1 for pxNBDL
 		.r0 = &iterator,
-		// .r2 = &pxLength, //When it doesn't have "printf", you should store into r2 for pxNBDL
 	};
 
-	// printf("Hello %p %p %p %p\n", &ippkt , &(ippkt.tcpptr) , *(ippkt.tcpptr), &(ippkt.xDataLength));
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2483,28 +2376,22 @@ void test_c33() {
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c34() {
 	/*
 	freertos_cve_2020_17442
 	*/
+	printf("Start the evaluation process!\n");
 	
-	// printf("Hello, Start!\n");
 	uint64_t ret1 = 0;
 	uint8_t len;
 
-	
 	stack_frame sf = {
-		//.r0 = &pxLength, //When it has "printf", you should store into r1 for pxNBDL
 		.r0 = len,
-		// .r2 = &pxLength, //When it doesn't have "printf", you should store into r2 for pxNBDL
 	};
 
-	// printf("Hello %p %p %p %p\n", &ippkt , &(ippkt.tcpptr) , *(ippkt.tcpptr), &(ippkt.xDataLength));
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2515,26 +2402,22 @@ void test_c34() {
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c35() {
 	/*
-	zephyr_cve_2020_13600
+	zephyros_cve_2020_13600
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	// char *test_str = "test\n";
 	int i = 2;
 
 	stack_frame sf = {
 		.r0 = i,
 	};
-
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2544,16 +2427,16 @@ void test_c35() {
 		ret1 = filter_13600(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
 void test_c36() {
 	/*
 	zephyr_cve_2019_16748
 	*/
-	// printf("Hello, Start!\n");
+	printf("Start the evaluation process!\n");
+	
 	uint64_t ret1 = 0;
-
 	// char *test_str = "test\n";
 	int ret = 1;
 	int extIdx = 2;
@@ -2565,7 +2448,6 @@ void test_c36() {
 		.r3 = certSz,
 	};
 
-	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
 	uint32_t total = 0;
 	profile_add_event("EV0");
@@ -2575,29 +2457,10 @@ void test_c36() {
 		ret1 = filter_16748(&sf);
 		total += profile_end(EV0);
 	}
-	printf("Hello, End! total is : %d \n", total);
+	printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////
-
+/////////////////////* End of NEW CVEs *////////////////////////////////
 
 
 // AMNESIA33_cve_2020_17445
