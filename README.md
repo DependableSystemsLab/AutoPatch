@@ -123,13 +123,13 @@ If you do not have access to the mentioned boards, you will need to perform the 
 *Note that AutoPatch is implemented to run on board and this part of the implementations is completely simplified and written for one CVE (CVE-2020-10021) to show that the generated patches are executable.*
 
 We provided a folder named [PCEvaluation](PCEvaluation) containing **4 main files**:
--  **test.c**
+-  **test.c:** This is a simplified program of the main program in [AutoPatchMain](AutoPatchMain/src/main.c) to run on a PC.
 
 
 -  **Script.sh**
 
   
--  **Script_withoutlink**
+-  **Script_withoutlink.sh**
 
   
 -  **Hotpatch_CVE_10021.bc**
