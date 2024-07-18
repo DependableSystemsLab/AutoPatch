@@ -15,7 +15,9 @@ This project consists of various files, but you only need its three main files, 
 
   We have already prepared this file for generated hotpatches and you just need to uncomment it. Note that only one of the hotpatches should be uncommented for each run. For example, if you uncomment the lines for CVE-2020-10021, the rest of the patches must be commented.
 
-- src/main.c: This file is used to evaluate **online overheads** (see section 6 in the paper to understand how we measure these overheads). To evaluate the overhead of hotpatch execution, you need to uncomment the function (`test_c()`) corresponding to that hotpatch after changing the **CMakeList** file. Note again that only one of the functions shoud be uncomment. In each `test_c()` function, the required parameters of the hotpatch are set and the desired function located in the object file is called.
+- src/main.c: This file is used to evaluate **online overheads** (see section 6 in the paper to understand how we measure these overheads). To evaluate the overhead of hotpatch execution, you need to uncomment the function `test_c()` corresponding to that hotpatch after changing the **CMakeList** file. Note again that only one of the functions shoud be uncomment.
+
+  In each `test_c()` function, the required parameters of the hotpatch are set and the desired function located in the object file is called.
 
 
 
