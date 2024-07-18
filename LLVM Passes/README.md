@@ -45,7 +45,7 @@ add_subdirectory(AutoPatchSecondPass)
 ```
 This ensures LLVM will build these passes, allowing them to be used in the scripts.
 
-### How to run these passes
+## How to run these passes
 
 First, add these two passes folder to this directory: `~/AutoPatchWorkspace/Passes`
 
