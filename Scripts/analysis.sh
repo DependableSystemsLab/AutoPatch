@@ -96,13 +96,12 @@ INST_BC_FILE2="${BC_DIR2}/${BASENAME2%.*}.bc"
 # Now you can compile the ll file to bc file
 "${LLVM_AS}" "${HOTPATCH_DIRECTORY}" -o "${INST_BC_FILE2}"
 
-
 # Compile generated bc file to object file
 CLANG="${LLVM_BUILD_DIR}/bin/clang"
 TARGET="arm-none-eabi"
 MARCH="armv7e-m"
 MCPU="cortex-m4"
-OBJECT_FILE="${AUTOPATCHCODE_DIR}/Results/Hotpatch_CVE_${CVEid}.o"
+OBJECT_FILE="${BC_DIR2}/${BASENAME2%.*}.o"
 #"$CLANG" "--target=${TARGET}" "-march=${MARCH}" "-mcpu=${MCPU}" "${INST_BC_FILE2}" "-c" "-o" "${OBJECT_FILE}"
 "$CLANG" "--target=${TARGET}" "-march=${MARCH}" "-mcpu=${MCPU}" "${INST_BC_FILE2}" "-c" "-o" "${OBJECT_FILE}" "-Os"
 
