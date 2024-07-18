@@ -2,9 +2,10 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <time.h>
+#include <sys/time.h> // Include for gettimeofday() function
 
 typedef struct stack_frame {
-	// I changed the first three variables from 32 to 8
 	uint32_t r0;
 	uint32_t r1;
 	uint32_t r2;
@@ -38,8 +39,12 @@ void test_c2() {
 	uint64_t ret1 = 0;
 	uint32_t total = 0;
 	
+	clock_t start_time = clock();
 	ret1 = filter_10021(&sf);
+	clock_t end_time = clock();
+	
+	double elapsed_time = ((double)(end_time - start_time) / CLOCKS_PER_SEC);
 
 	printf("Process is done!\n");
-
+	printf("Hotpatch overhead: %f seconds and %f microseconds\n",elapsed_time, elapsed_time * 1000000);
 }
