@@ -9,7 +9,7 @@ nRF52840, STM32-F446RE, or ESP-WROOM32.
 
 It is important to note that, as explained in the paper, the LLVM passes (i.e., **Instrumentation and Analysis components**) do not necessitate a board and can be executed on general-purpose computers. 
 
-Note that although **AutoPatch** has been evaluated on different RTOSes and boards, in this artifact we explain its evaluation on the **nrf52840** board and **Zephyr OS**.
+Although **AutoPatch** has been evaluated on different RTOSes and boards, in this artifact we explain its evaluation on the **nrf52840** board and **Zephyr OS**.
 
 #### The structure of the artifact is as follows:
 ```
