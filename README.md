@@ -105,7 +105,7 @@ When you install Zephyr OS on your system according to [this link](https://docs.
 
 To run the generated hotpatch on the board running Zephyr OS you need to do the following steps:
 
-- Open AutoPatchMain project in VSCode.
+- Open AutoPatchMain project with VSCode.
 - Add hotpatch object file (located in \~/AutoPatch/Testcases/CVE_Lists/Results/Hotpatch_CVE_{CVEid}.o) (see [Scripts](Scripts)) to AutoPatchMain source code folder (e.g., src/LocalPatches/) (see [AutoPatch Project](https://github.com/Moh3nsalehi/AutoPatchCode/tree/main/AutoPatchMain)).
 - Change CMakeLists.txt (e.g., \~/zephyrproject/zephyr/samples/AutoPatchMain/) to add the hotpatch information.
   - add_library(myac_obj OBJECT `hotpatch directory in AutoPatchMain folder`)
