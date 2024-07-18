@@ -6,7 +6,7 @@ This is the main project of AutoPatch that is used in Zephyr OS for evaluating t
 
 This project consists of various files, but you only need its three main files, which include `src/LocalPatches/`, `CMakeLists.txt`, and `src/main.c`.
 
-- src/LocalPatches: This folder is located in `src` directory and contains all of the generated hotpatches in object file format.
+- src/LocalPatches: This folder is located in `src` directory and contains all of the *generated hotpatches* in *object file* format.
 
   
 - CMakeLists.txt: To link the generated hotpatch to the OS, you must put its information in this file. For each patch, two lines should be added to this file.
