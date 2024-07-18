@@ -116,5 +116,6 @@ To run the generated hotpatch on the board running Zephyr OS you need to do the 
 
 ## How To Run AutoPatch on PC
 
+If you do not have access to the mentioned boards, you will need to perform the previous steps a bit differently. In the following, we will explain how the hotpatch execution process differs from the previous part. For this part, we used Ubuntu 22.04.
 
 
