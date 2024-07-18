@@ -15,7 +15,7 @@ Although **AutoPatch** has been evaluated on different RTOSes and boards, in thi
 ```
 AutoPatchMain    <--- Main Project
 
-LLVM Passes
+Passes
 |
 └─── AutoPatchFirstPass    <--- Instrumentation Pass
 └─── AutoPatchSecondPass   <--- Analysis Pass
