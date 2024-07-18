@@ -879,7 +879,7 @@ void main(){
 	//For Patch Exectution Time:
 	
 	// test_c1(); //CVE-2020-10063
-	// test_c2(); //CVE-2020-10021
+	test_c2(); //CVE-2020-10021
 	// test_c3(); //CVE_2020_10024
 	// test_c4(); //CVE_2020_10028
 	// test_c5(); //CVE-2020-10062
@@ -907,7 +907,7 @@ void main(){
 	// test_c24(); //CVE-2020-10060
 	// test_c25(); //CVE-2020-10061
 	// test_c26(); //CVE-2020-10066
-	test_c27(); //CVE-2020-10067
+	// test_c27(); //CVE-2020-10067
 	// test_c28(); //CVE-2020-10069
 	// test_c29(); //CVE-2020-10070
 	// test_c30(); //CVE-2020-10071
