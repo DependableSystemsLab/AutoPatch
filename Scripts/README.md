@@ -4,7 +4,7 @@ For instance: `export LLVM_BUILD_DIR=~/llvm-project/build`
 
 These environment variables are used by the scripts to locate the LLVM build directory and the AutoPatch source code directory.  
 
-Also, please check the directory of the variables used in the scripts, and make sure they are correct for your PC.
+Also, please check the directory of the variables used in the scripts, and make sure they are correct for your PC. For instance, please make sure `AUTOPATCH_INSTRUMENT_REPO` is set to the folder that contains LLVM Passes (Default: ~/AutoPatchWorkspace/Passes/)
 
 ## instrument.sh
 ### Overview
