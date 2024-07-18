@@ -429,11 +429,6 @@ uint64_t patch_cve_10063(stack_frame *sp){
 //**********//
 
 
-
-//CVE-2020-10023
-//Complicated
-
-
 //CVE-2020-10024
 uint64_t patch_cve_10024(stack_frame *sp){
 	uint32_t op = FILTER_PASS;
@@ -491,29 +486,7 @@ uint64_t patch_cve_10028(stack_frame *sp){
 // }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //CVE-2020-10021
-//You need still work on it (RapidPatch is very better than this!)
-
 #define BLOCK_SIZE	512
 /*current CBW*/
 static struct CBW cbw;
@@ -618,12 +591,10 @@ static bool dummy_CVE_2020_10021_infoTransfer(void)
 }
 
 void call_dummy_CVE_2020_10021_infotransfer(){
-	//printf("hel");
 	// setup test arguments 8002df8 - 8002dec
 
 	int bl_addr = (uint32_t) dummy_CVE_2020_10021_infoTransfer + 11;
 	printf("addr ground-truth bug:0x%08x test:0x%08x \n", bl_addr, call_dummy_CVE_2020_10021_infotransfer);
-	
 	
 	
 	// Prepare invocation context for the buggy function
@@ -893,15 +864,20 @@ extern uint64_t filter_10019(stack_frame *frame);
 
 void main(){
 
-	// printf("Hello World! %s\n", CONFIG_BOARD);
+	// printf("Config Board is ! %s\n", CONFIG_BOARD);
+	
 	// For Patch Dispatching Delay
 	// test_patch_dispatcher();
-	uint32_t cpu_freq = sys_clock_hw_cycles_per_sec();
 
-    printf("CPU Frequency: %u Hz\n", cpu_freq);
 	
-	//For Patch Exectution Time
+	// Board CPU Frequency Information
+	uint32_t cpu_freq = sys_clock_hw_cycles_per_sec();
+   	printf("CPU Frequency: %u Hz\n", cpu_freq);
 
+
+	
+	//For Patch Exectution Time:
+	
 	// test_c1(); //CVE-2020-10063
 	// test_c2(); //CVE-2020-10021
 	// test_c3(); //CVE_2020_10024
@@ -915,7 +891,7 @@ void main(){
 	// test_c11(); //CVE-2020-17445
 	// test_c12(); //CVE-2020-10023
 
-
+	// NEW CVES:
 
 	// test_c13(); //CVE-2018-16522
 	// test_c14(); //CVE-2018-16526
@@ -959,9 +935,6 @@ void main(){
 	// test_ebpf_c12();
 
 
-
-
-
 	// printf("Hello, Begin!\n");
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -996,13 +969,6 @@ void main(){
 	///load_local_fixed_patch(1);
 	// call_dummy_CVE_2020_10021_infotransfer();	
 
-	
-
-
-
-
-
-
 
 	////////////////////////*********************************************/////////////////////////////////////
 
@@ -1010,9 +976,9 @@ void main(){
 	// int num_patches = 0;
 
 	// // Insert patch function 1
-    // patches[num_patches].address = 0x00001921;
-    // patches[num_patches].patch_func = filter; // Set the patch function pointer accordingly
-    // num_patches++;
+    	// patches[num_patches].address = 0x00001921;
+   	// patches[num_patches].patch_func = filter; // Set the patch function pointer accordingly
+    	// num_patches++;
 
 	// insert_patch_function(patches, &num_patches, 0x00001922, filter);
 	// insert_patch_function(patches, &num_patches, 0x00001923, filter);
@@ -1039,37 +1005,37 @@ void main(){
 	// insert_patch_function(patches, &num_patches, 0x0800de08, filter);
 	// insert_patch_function(patches, &num_patches, 0x08002000, filter);
 
-    // // // Insert patch function 2
-    // // patches[num_patches].address = 0x00001924;
-    // // patches[num_patches].patch_func = filter; // Set the patch function pointer accordingly
-    // // num_patches++;
+	// Insert patch function 2
+    	// patches[num_patches].address = 0x00001924;
+    	// patches[num_patches].patch_func = filter; // Set the patch function pointer accordingly
+    	// num_patches++;
 
 	// // // Insert patch function 1
-    // // patches[num_patches].address = 0x00001922;
-    // // patches[num_patches].patch_func = filter; // Set the patch function pointer accordingly
-    // // num_patches++;
+    	// patches[num_patches].address = 0x00001922;
+    	// patches[num_patches].patch_func = filter; // Set the patch function pointer accordingly
+    	// num_patches++;
 
-    // // // Insert patch function 2
-    // // patches[num_patches].address = 0x00001923;
-    // // patches[num_patches].patch_func = filter; // Set the patch function pointer accordingly
-    // // num_patches++;
+    	// // // Insert patch function 2
+    	// patches[num_patches].address = 0x00001923;
+    	// patches[num_patches].patch_func = filter; // Set the patch function pointer accordingly
+    	// num_patches++;
 
-    // // Find patch function based on address
-    // uint32_t address_to_find = 0x00001922;
+    	// // Find patch function based on address
+    	// uint32_t address_to_find = 0x00001922;
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
 
-    // patch_func_t found_patch_func = find_patch_function(patches, num_patches, address_to_find);
+    	// patch_func_t found_patch_func = find_patch_function(patches, num_patches, address_to_find);
 
 	// profile_end(EV0);
 	// profile_dump(EV0);
 
-    // if (found_patch_func != NULL) {
-    //     printf("Found patch function at address 0x%08x\n", address_to_find);
-    // } else {
-    //     printf("Patch function not found at address 0x%08x\n", address_to_find);
-    // }
+    	// if (found_patch_func != NULL) {
+    	//     printf("Found patch function at address 0x%08x\n", address_to_find);
+    	// } else {
+    	//     printf("Patch function not found at address 0x%08x\n", address_to_find);
+    	// }
 
     
 
@@ -1077,8 +1043,8 @@ void main(){
 
 	// hashmap_t* map = hashmap_init(21); // Initialize hashmap with 16 buckets
 
-    // // Insert entries into the hashmap
-    // // hashmap_insert(map, 0x00001921, filter_CVE_10021);
+    	// Insert entries into the hashmap
+    	// hashmap_insert(map, 0x00001921, filter_CVE_10021);
 	// hashmap_insert(map, 0x00001921, filter);
 	// hashmap_insert(map, 0x00001924, filter);
 	// hashmap_insert(map, 0x00001926, filter);
@@ -1101,7 +1067,7 @@ void main(){
 	// hashmap_insert(map, 0x00001920, filter);
 	// hashmap_insert(map, 0x00001925, filter);
 
-        // ... (add more entries here)
+        // ... (TODO: add more entries here)
 
    	// Get the patch function from the hashmap based on the address
     	// struct stack_frame st_frame;
