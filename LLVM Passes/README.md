@@ -47,5 +47,7 @@ This ensures LLVM will build these passes, allowing them to be used in the scrip
 
 ### How to run these passes
 
-Please check [Scripts](../Scripts) folder.
+First, add these two passes to this directory: `~/AutoPatchWorkspace/Passes`
+
+Then, please check [Scripts](../Scripts) folder.
 
