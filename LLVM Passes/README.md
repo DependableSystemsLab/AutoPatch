@@ -9,7 +9,9 @@ This pass inserts trampolines in the four locations (i.e., **Instrumentation Loc
 3) Inside and after complex loops
 4) Inside and after complex branches
    
-The second pass, `AutoPatchSecondPass`, generates the hotpatch based on the official patch (i.e., patched instrumented function). It is meant to be run after a security vulnerability is discovered in the vulnerable function. Taking in the patched function, it selects the best trampoline to generate the hotpatch will. The resulting hotpatch is an executable file that can be stored into the running embedded device. We use this pass in the [`analysis.sh`](../Scripts/analysis.sh) script.
+The second pass, `AutoPatchSecondPass`, generates the hotpatch based on the official patch (i.e., patched instrumented function). It is meant to be run after a security vulnerability is discovered in the vulnerable function. Taking in the patched function, it selects the best trampoline to generate the hotpatch will. The resulting hotpatch is an executable file that can be stored into the running embedded device. 
+
+We use this pass in the [`analysis.sh`](../Scripts/analysis.sh) script.
 
 Both passes are written in C++ and are located in this directory.
 
