@@ -32,12 +32,7 @@ Testcases
 |
 └─── CVE Dataset
 │   │   Results
-```    
-
-## How To Run AutoPatch on PC
-
-
-
+```
 
 ## How To Run AutoPatch on a Board
 
@@ -117,3 +112,9 @@ To run the generated hotpatch on the board running Zephyr OS you need to do the 
 -  Change `main` function in `main.c` file in the src folder. For the hotpatches we generated, you only need to call one of the 36 `test_c()` functions.
 -  Use **nRF Connect** extention in VSCode to flash and execute AutoPatchMain project to the board.
     - Forward the result to a serial port to see printed messages in the terminal.
+ 
+
+## How To Run AutoPatch on PC
+
+
+
