@@ -82,7 +82,7 @@ Connect the Nordic Semiconductor ARM board (nRF52840-DK) to the desktop computer
 
 Follow the instructions [here](https://www.zephyrproject.org/getting-started-with-nrf-connect-for-visual-studio-code/) to create a project, build, and flash example code onto the board.
 
-### Run LLVM Passes Using Shell Scripts
+### Run LLVM Passes Using Scripts
 
 To streamline development work, we have written [scripts](Scripts) for executing the instrumentation and analysis components of AutoPatch.  
 
