@@ -7,7 +7,7 @@ To evaluate *AutoPatch* and obtain results similar to those presented in the pap
 
 **nRF52840, STM32-F446RE, or ESP-WROOM32**
 
-**It is important to note that due to university policies, external access to the university's internal internet is not allowed. Therefore, we cannot provide the AE committee with access to the boards. However, we have included three photos of the board setup and overheads for AutoPatch in the screencast folder.**
+**It is important to note that due to university policies, external access to the university's internal internet is not allowed. Therefore, we cannot provide the AE committee with access to the boards. However, we have included three photos of the board setup and overheads for AutoPatch in the Screencast folder.**
 
 As explained in the paper, the LLVM passes (i.e., **Instrumentation and Analysis components**) do not necessitate a board and can be executed on general-purpose computers. 
 
@@ -36,6 +36,7 @@ Testcases
 │   │   Results
 
 PCEvaluation
+Screencast
 ```
 
 ## How To Run AutoPatch on a Board
