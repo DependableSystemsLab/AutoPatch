@@ -1125,7 +1125,7 @@ void test_c1() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1187,7 +1187,7 @@ void test_c5() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1215,7 +1215,7 @@ void test_c2() {
 	/*
 	zephyr_cve_2020_10021
 	*/
-	// printf("Start the evaluation process!\n");
+	printf("Start the evaluation process!\n");
 	
 	stack_frame sf;
 	sf.r0 = 10; // n
@@ -1223,7 +1223,7 @@ void test_c2() {
 	uint64_t ret1 = 0;
 	int total = 0;
 	int total_not_AutoPatch = 0;
-
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1245,15 +1245,6 @@ void test_c2() {
   	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
   	printf("[cve_2020_10021] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
 
-	// uint32_t testcase = 268435456; //Malicious input
-	// // uint32_t testcase = 1; //Normal input
-	// sf.r0 = testcase;
-	// profile_add_event("EV1");
-	// profile_start(EV1);
-	// ret1 = filter_10062_2(&sf);
-	// profile_end(EV1);
-	// profile_dump(EV1);
-	// printf("Hello, End!\n");
 }
 
 void test_c3() {
@@ -1270,7 +1261,7 @@ void test_c3() {
 	sf.r0 = 0;
 	int total = 0;
 	int total_not_AutoPatch = 0;
-
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1348,7 +1339,7 @@ void test_c4(){
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1421,7 +1412,7 @@ void test_c6() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1462,7 +1453,7 @@ void test_c7() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1523,7 +1514,7 @@ void test_c8() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1568,7 +1559,7 @@ void test_c9() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1624,7 +1615,7 @@ void test_c10() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1679,7 +1670,7 @@ void test_c11() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1739,7 +1730,7 @@ void test_c12() {
 
 	int total = 0;
 	int total_not_AutoPatch = 0;
-	
+	dwt_init();
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
