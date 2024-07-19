@@ -811,12 +811,14 @@ void patch_num_eva(struct patch_list *plist, int n, int times) {
 		}
 	}
 	int cycles = get_cur_tick() - start;
+	int microseconds_per_iteration = (int)(cycles2us(cycles / times / n) * 100);
 
-	printf("num: %d ti: %d cycles: %d\n", n, (int) (cycles2us(cycles / times / n) * 100), cycles);
+  	printf("patch_numbers: %d time: %d.%02d cycles: %d\n", n, microseconds_per_iteration / 100, cycles);
 }
 
 void test_patch_dispatcher(){
 	// setup patch list
+	printf("**Evaluating Hotpatch Dispatching Overhead** \n");
 	profile_add_event("EV0");
 	profile_start(EV0);
 	profile_end(EV0);
@@ -864,15 +866,15 @@ extern uint64_t filter_10019(stack_frame *frame);
 
 void main(){
 
-	// printf("Config Board is ! %s\n", CONFIG_BOARD);
+	printf("Hello, Welcome to AutoPatch Artifact! This is the config of board: %s\n", CONFIG_BOARD);
 	
 	// For Patch Dispatching Delay
 	// test_patch_dispatcher();
 
 	
 	// Board CPU Frequency Information
-	uint32_t cpu_freq = sys_clock_hw_cycles_per_sec();
-   	printf("CPU Frequency: %u Hz\n", cpu_freq);
+	// uint32_t cpu_freq = sys_clock_hw_cycles_per_sec();
+   	// printf("CPU Frequency: %u Hz\n", cpu_freq);
 
 
 	
