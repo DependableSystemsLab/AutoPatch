@@ -8,7 +8,7 @@ project(hello_world)
 # add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10062_1.o)
 # add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10062_2.o)
 
-# add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10021.o)
+add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10021.o)
 
 # add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10063.o)
 
@@ -62,7 +62,7 @@ project(hello_world)
 
 # add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10066.o)
 
-add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10067.o)
+# add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10067.o)
 
 # add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10069.o)
 
@@ -88,7 +88,7 @@ set_target_properties(myac_obj PROPERTIES LINKER_LANGUAGE C)
 # target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10062_1.o)
 # target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10062_2.o)
 
-# target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10021.o)
+target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10021.o)
 
 # target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10063.o)
 
@@ -112,7 +112,7 @@ set_target_properties(myac_obj PROPERTIES LINKER_LANGUAGE C)
 
 # target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_16528_2.o)
 
-#target_sources(app PUBLIC src/main.c)
+# target_sources(app PUBLIC src/main.c)
 
 
 # target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_16522.o)
@@ -143,7 +143,7 @@ set_target_properties(myac_obj PROPERTIES LINKER_LANGUAGE C)
 
 # target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10066.o)
 
-target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10067.o)
+# target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10067.o)
 
 # target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10069.o)
 
