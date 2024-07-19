@@ -403,7 +403,6 @@ static inline bool u16_add_overflow_patch(uint16_t a, uint16_t b, uint16_t *resu
 	uint16_t c = a + b;
 	///printf("c: %d and a:%d \n", c, a);
 	*result = c;///Fix it
-	///printf("Ey khoda \n");
 	return c < a; }
 //one place
 //Rapid Patch is so bad!
@@ -1124,7 +1123,9 @@ void test_c1() {
 	uint64_t ret1 = 0;
 	
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1133,15 +1134,18 @@ void test_c1() {
 		total += profile_end(EV0);
 	}
 	
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
 
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2020_10063] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
 
-	// profile_add_event("EV0");
-	// profile_start(EV0);
-	// ret1 = filter_10063(&sf);
-	// profile_end(EV0);
-	// profile_dump(EV0);
-	// printf("Hello, End!\n");
 }
 
 void test_c5() {
@@ -1181,7 +1185,9 @@ void test_c5() {
 	// // uint32_t testcase = 1; //Normal input
 	sf.r0 = testcase;
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1190,17 +1196,19 @@ void test_c5() {
 		total += profile_end(EV0);
 	}
 	
-	
-	//profile_dump(EV0);
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
 
-	
-	// profile_add_event("EV1");
-	// profile_start(EV1);
-	// ret1 = filter_10062_2(&sf);
-	// profile_end(EV1);
-	// profile_dump(EV1);
-	// printf("Hello, End!\n");
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2020_10062] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 }
 
 void test_c2() {
@@ -1213,7 +1221,9 @@ void test_c2() {
 	sf.r0 = 10; // n
 	sf.r1 = 1024; // memory_size
 	uint64_t ret1 = 0;
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1223,8 +1233,17 @@ void test_c2() {
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2020_10021] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
 
 	// uint32_t testcase = 268435456; //Malicious input
 	// // uint32_t testcase = 1; //Normal input
@@ -1249,7 +1268,9 @@ void test_c3() {
 	// sf.xpsr = 7;
 	uint64_t ret1 = 0;
 	sf.r0 = 0;
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1257,8 +1278,20 @@ void test_c3() {
 		ret1 = filter_10024(&sf);
 		total += profile_end(EV0);
 	}
-	
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2020_10024] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1313,7 +1346,9 @@ void test_c4(){
 
 	uint64_t ret1 = 0;
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1322,8 +1357,19 @@ void test_c4(){
 		total += profile_end(EV0);
 	}
 	
-	
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2020_10028] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1373,7 +1419,9 @@ void test_c6() {
 
 	// printf("Hello %p %p %p %p\n", &ippkt , &(ippkt.tcpptr) , *(ippkt.tcpptr), &(ippkt.xDataLength));
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1383,17 +1431,20 @@ void test_c6() {
 	}
 	
 	
-	//profile_dump(EV0);
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
 
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2018_16524] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
 
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
-	// profile_add_event("EV0");
-	// profile_start(EV0);
-	// ret1 = filter_16524(&sf);
-	// profile_end(EV0);
-	// profile_dump(EV0);
-	// printf("Hello, End!\n");
 }
 
 void test_c7() {
@@ -1409,7 +1460,9 @@ void test_c7() {
 		.r1 = 2
 	};
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1418,8 +1471,22 @@ void test_c7() {
 		ret1 = filter_16528_2(&sf);
 		total += profile_end(EV0);
 	}
+
 	
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2018_16528] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1454,7 +1521,9 @@ void test_c8() {
 
 	// printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1462,8 +1531,20 @@ void test_c8() {
 		ret1 = filter_16603(&sf);
 		total += profile_end(EV0);
 	}
-	
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2018_16603] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1485,7 +1566,9 @@ void test_c9() {
 		.pc = 2020
 	};
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1494,8 +1577,19 @@ void test_c9() {
 		total += profile_end(EV0);
 	}
 	
-	
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2017_2784] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1528,7 +1622,9 @@ void test_c10() {
 
 	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1536,8 +1632,20 @@ void test_c10() {
 		ret1 = filter_17443(&sf);
 		total += profile_end(EV0);
 	}
-	
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2020_17443] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 
 	// profile_add_event("EV0");
@@ -1569,7 +1677,9 @@ void test_c11() {
 
 	// printf("Hello %d %p \n", *option , option);
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1577,8 +1687,20 @@ void test_c11() {
 		ret1 = filter_17445(&sf);
 		total += profile_end(EV0);
 	}
-	
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2020_17445] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 
 	// profile_add_event("EV0");
@@ -1615,7 +1737,9 @@ void test_c12() {
 
 	//printf("Hello %p %p \n", &ethpkt , &(ethpkt.xDataLength) );
 
-	uint32_t total = 0;
+	int total = 0;
+	int total_not_AutoPatch = 0;
+	
 	profile_add_event("EV0");
 	for (int i = 0; i < 1000; i++)
 	{
@@ -1624,8 +1748,19 @@ void test_c12() {
 		total += profile_end(EV0);
 	}
 
-	
-	printf("Evaluation result for 1000 execution! total is : %d \n", total);
+	profile_add_event("EV1");
+  	for (int i = 0; i < 1000; i++)
+  	{
+    		profile_start(EV1);
+    		total_not_AutoPatch += profile_end(EV1);
+ 	}
+
+  	// printf("total cycles is: %d and without patch is: %d \n", total, total_not_AutoPatch);
+  	total -= total_not_AutoPatch;
+  	int nanoseconds_cve = (int) ((cycles2us(total / 1000) * 1000));
+  	printf("[cve_2020_10023] AutoPatch overhead cycles: %d , time: %d nanoseconds\n", total, nanoseconds_cve);
+
+	// printf("Evaluation result for 1000 execution! total is : %d \n", total);
 
 	// profile_add_event("EV0");
 	// profile_start(EV0);
@@ -1637,7 +1772,7 @@ void test_c12() {
 
 }
 
-/////////////////////*NEW CVEs*////////////////////////////////
+/////////////////////*NEW CVEs for Revision*////////////////////////////////
 void test_c13() {
 	/*
 	freertos_cve_2018_16522
