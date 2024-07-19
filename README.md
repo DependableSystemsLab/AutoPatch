@@ -61,7 +61,7 @@ Download the following software applications:
 - [Nordic Semiconductor SDK (full suite)](https://www.nordicsemi.com/Products/Development-software/nrf5-sdk)
 - [ZephyrOS](https://docs.zephyrproject.org/latest/develop/getting_started/index.html)
 
-### Configuring LLVM
+### Setting up and Configuring LLVM
 
 Please check [LLVM Passes](Passes) folder.
 
