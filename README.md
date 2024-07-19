@@ -74,7 +74,7 @@ Download the following VSCode extensions for ZephyrOS and Nordic Semiconductor (
 - nRF Connect for VSCode
 - nRF Terminal
 
-Note that these extensions are required to run on the nRF52840 board.
+Note that these extensions are required to run on the *nRF52840* board.
 
 ### Connecting Nordic Semiconductor ARM Board
 
