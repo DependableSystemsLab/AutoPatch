@@ -7,7 +7,9 @@ To evaluate *AutoPatch* and obtain results similar to those presented in the pap
 
 **nRF52840, STM32-F446RE, or ESP-WROOM32**
 
-It is important to note that, as explained in the paper, the LLVM passes (i.e., **Instrumentation and Analysis components**) do not necessitate a board and can be executed on general-purpose computers. 
+**It is important to note that due to university policies, external access to the university's internal internet is not allowed. Therefore, we cannot provide the AE committee with access to the boards. However, we have included three photos of the board setup and overheads for AutoPatch in the Screenshots folder.**
+
+As explained in the paper, the LLVM passes (i.e., **Instrumentation and Analysis components**) do not necessitate a board and can be executed on general-purpose computers. 
 
 Although **AutoPatch** has been evaluated on different RTOSes and boards, in this artifact we explain its evaluation on the **nrf52840** board and **Zephyr OS**.
 
