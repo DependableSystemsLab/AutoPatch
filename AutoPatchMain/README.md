@@ -13,7 +13,7 @@ This project consists of various files, but you only need its three main files, 
   For instance: `add_library(myac_obj OBJECT src/LocalPatches/Hotpatch_CVE_10021.o)` and
                 `target_sources(app PRIVATE src/main.c src/LocalPatches/Hotpatch_CVE_10021.o)`
 
-  We have already prepared this file for generated hotpatches and you just need to uncomment it. Note that only one of the hotpatches should be uncommented for each run. For example, if you uncomment the lines for CVE-2020-10021, the rest of the patches must be commented.
+  We have already prepared this file for generated hotpatches and you just need to uncomment it. *Note that only one of the hotpatches should be uncommented for each run.* For example, if you uncomment the lines for CVE-2020-10021, the rest of the patches must be commented.
 
 - **src/main.c:** This file is used to evaluate **online overheads** (see section 6 in the paper to understand how we measure these overheads). To evaluate the overhead of hotpatch execution, you need to uncomment the function `test_c()` corresponding to that hotpatch after changing the **CMakeList** file. Note again that only one of the functions shoud be uncomment.
 
